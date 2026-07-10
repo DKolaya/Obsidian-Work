@@ -1,13 +1,12 @@
-﻿---
+---
 title: AI Agent Workflow Audit Prompt
 created: 2026-07-08
 type: reference
 tags:
-  - codex
-  - claude-code
-  - ai-workflows
-  - prompting
-  - agentic-workflow
+  - topic/codex
+  - topic/claude-code
+  - topic/ai-workflows
+  - topic/prompting
 ---
 
 # AI Agent Workflow Audit Prompt

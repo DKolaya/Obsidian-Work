@@ -1,7 +1,8 @@
 ---
 title: File Processing Component Suites
 created: 2026-07-08
-source: [[01_Inbox/OneNote Import/Drew @ Work]]
+type: resource
+source: [[90_Archive/OneNote Raw/Drew @ Work]]
 tags:
   - resource/vendor
   - area/development

@@ -1,10 +1,11 @@
 ---
 title: Performance Review Notes
 created: 2026-07-08
-source: [[01_Inbox/OneNote Import/Drew @ Work]]
+type: area
+source: [[90_Archive/OneNote Raw/Drew @ Work]]
 tags:
   - area/development
-  - career
+  - area/career
 ---
 
 # Performance Review Notes

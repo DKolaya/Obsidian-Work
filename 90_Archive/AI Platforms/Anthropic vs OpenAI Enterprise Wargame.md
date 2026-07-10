@@ -1,3 +1,10 @@
+---
+title: Anthropic vs OpenAI Enterprise Wargame (superseded draft)
+created: 2026-07-09
+type: report
+tags:
+  - project/ai-initiative
+---
 > **SUPERSEDED** — this is the original Claude.ai draft, written with no web access. Its "likely fabricated" call on Mythos/Fable 5/Glasswing was wrong; live verification confirmed it real. See [[06_Resources/AI Platforms/Anthropic vs OpenAI Enterprise Comparison|the corrected comparison]]. Kept here for provenance only.
 
 # Anthropic vs. OpenAI — Enterprise Wargame & Multi-Agent Audit (as of July 9, 2026)

@@ -1,3 +1,10 @@
+---
+title: Anthropic vs OpenAI Session Handoff (superseded draft)
+created: 2026-07-09
+type: report
+tags:
+  - project/ai-initiative
+---
 > **SUPERSEDED** — verification worklist below is fully resolved. See [[06_Resources/AI Platforms/Anthropic vs OpenAI Enterprise Comparison|the corrected comparison]]. Kept here for provenance only.
 
 # Session Handoff — Anthropic vs. OpenAI Enterprise Wargame & Audit

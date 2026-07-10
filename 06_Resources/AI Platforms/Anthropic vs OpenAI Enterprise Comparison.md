@@ -1,11 +1,11 @@
 ---
 title: Anthropic vs OpenAI Enterprise Comparison
 created: 2026-07-09
+type: resource
+source: [[90_Archive/AI Platforms/Anthropic vs OpenAI Enterprise Wargame|original Claude.ai wargame draft]]
 tags:
-  - ai-platforms
-  - reference
+  - topic/ai-platforms
   - project/ai-initiative
-source: [[06_Resources/AI Platforms/Sources/Anthropic vs OpenAI Enterprise Wargame|original Claude.ai wargame draft]]
 ---
 
 # Anthropic vs. OpenAI — Enterprise Comparison (verified July 9, 2026)

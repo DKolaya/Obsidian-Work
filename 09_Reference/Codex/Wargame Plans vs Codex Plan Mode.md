@@ -3,10 +3,9 @@ title: Wargame Plans vs Codex Plan Mode
 created: 2026-07-08
 type: reference
 tags:
-  - codex
-  - ai-workflows
-  - planning
-  - red-team
+  - topic/codex
+  - topic/ai-workflows
+  - topic/red-team
 ---
 
 # Wargame Plans vs Codex Plan Mode

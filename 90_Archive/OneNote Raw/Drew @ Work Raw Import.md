@@ -1,7 +1,8 @@
 ---
 title: Drew @ Work
+created: 2026-07-08
+type: import
 source: C:\Users\dkolaya\Downloads\Drew @ Work.mht
-imported: 2026-07-08 12:30
 tags:
   - imported/onenote
   - work

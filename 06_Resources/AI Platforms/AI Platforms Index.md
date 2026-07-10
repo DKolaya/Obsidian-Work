@@ -1,9 +1,9 @@
 ---
 title: AI Platforms Index
 created: 2026-07-09
+type: index
 tags:
-  - ai-platforms
-  - reference
+  - topic/ai-platforms
 ---
 
 # AI Platforms Index
@@ -25,4 +25,4 @@ Reference notes feeding the [[04_Projects/Active/AI Initiative|AI Initiative]] p
 ## Links
 
 - [[04_Projects/Active/AI Initiative]]
-- [[claude-api|Claude API reference]] *(agent skill, not a vault note — use for model/pricing lookups)*
+- `claude-api` agent skill *(not a vault note — use for model/pricing lookups)*

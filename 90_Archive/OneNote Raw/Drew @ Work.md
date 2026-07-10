@@ -1,9 +1,9 @@
 ---
 title: Drew @ Work Import Map
 created: 2026-07-08
+type: import
 tags:
   - imported/onenote
-  - map
 ---
 
 # Drew @ Work Import Map
@@ -19,7 +19,7 @@ Imported OneNote page has been sorted into topic notes. The sanitized raw source
 - [[04_Projects/Active/Deferred Transactions]]
 - [[PEF API Member Payload]]
 - [[05_Areas/Development/Performance Review Notes]]
-- [[06_Resources/File Processing Component Suites]]
+- [[06_Resources/Vendors/File Processing Component Suites]]
 - [[06_Resources/Intacct/Intacct Hints]]
 
 ## Source Handling

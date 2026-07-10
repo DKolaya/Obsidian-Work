@@ -1,8 +1,9 @@
 ---
 title: Team Index
 created: 2026-07-08
+type: index
 tags:
-  - area
+  - area/team
 ---
 
 # Team Index

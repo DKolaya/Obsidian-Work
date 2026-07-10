@@ -1,8 +1,9 @@
 ---
 title: Database Index
 created: 2026-07-08
+type: index
 tags:
-  - area
+  - area/database
 ---
 
 # Database Index

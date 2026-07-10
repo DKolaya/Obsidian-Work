@@ -1,3 +1,10 @@
+---
+title: Teams message (archived paste)
+created: 2026-07-09
+type: import
+tags:
+  - imported/teams
+---
  Here is the audit prompt that I used. Please make sure to fill in the [ text ] it'll probably ask you a question and handle it if you don't though. I recommend using a time range of last 4 weeks to best show your current prompting skills.
 
 ```

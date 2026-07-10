@@ -1,8 +1,9 @@
 ---
 title: Script Index
 created: 2026-07-08
+type: index
 tags:
-  - scripts
+  - resource/script
 ---
 
 # Script Index

@@ -3,10 +3,10 @@ title: AI Agent Workflow Audit Report 2026-07
 created: 2026-07-09
 type: report
 tags:
-  - codex
-  - claude-code
-  - ai-workflows
-  - audit
+  - topic/codex
+  - topic/claude-code
+  - topic/ai-workflows
+  - topic/audit
 ---
 
 # AI Agent Workflow Audit — Codex + Claude Code

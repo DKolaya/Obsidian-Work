@@ -1,7 +1,8 @@
 ---
 title: MIDAS GP MPAS Service
 created: 2026-07-08
-source: [[01_Inbox/OneNote Import/Drew @ Work]]
+type: project
+source: [[90_Archive/OneNote Raw/Drew @ Work]]
 tags:
   - project/midas
   - area/database

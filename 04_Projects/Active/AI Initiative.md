@@ -1,6 +1,7 @@
 ---
 title: AI Initiative
 created: 2026-07-09
+type: project
 tags:
   - project/ai-initiative
   - area/development

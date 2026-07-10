@@ -3,8 +3,8 @@ title: Codex Index
 created: 2026-07-08
 type: index
 tags:
-  - codex
-  - ai-workflows
+  - topic/codex
+  - topic/ai-workflows
 ---
 
 # Codex Index

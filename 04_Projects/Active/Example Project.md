@@ -1,8 +1,9 @@
 ---
 title: Example Project
 created: 2026-07-08
+type: project
 tags:
-  - project
+  - work
 ---
 
 # Example Project

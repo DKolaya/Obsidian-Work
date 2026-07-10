@@ -1,8 +1,9 @@
 ---
 title: Todo Dashboard
 created: 2026-07-08
+type: dashboard
 tags:
-  - todo
+  - todo/work
   - dashboard
 ---
 

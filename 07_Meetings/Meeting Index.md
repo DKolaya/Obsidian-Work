@@ -1,8 +1,9 @@
 ---
 title: Meeting Index
 created: 2026-07-08
+type: index
 tags:
-  - meetings
+  - work
 ---
 
 # Meeting Index
