@@ -48,6 +48,7 @@ tags:
 
 - [[09_Reference/Codex/Codex Index|Codex Index]]
 - [[09_Reference/Vault/Vault Index|Vault Index]]
+- [[09_Reference/Vault/Sync Log|Sync Log]]
 - [[08_Templates/Template Index|Template Index]]
 - [[05_Areas/Development/Performance Review Notes|Performance Review Notes]]
 - [[90_Archive/OneNote Raw/Drew @ Work|Imported OneNote map]]

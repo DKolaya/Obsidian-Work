@@ -11,4 +11,5 @@ tags:
 Meta notes about the vault's own structure/organization (not project or area content).
 
 - [[Vault Organization Audit Prompt]] — run 2026-07-10; findings applied vault-wide (placement rules, frontmatter schema, tag taxonomy, file moves)
-- [CLAUDE.md](../../CLAUDE.md) — vault root; the canonical placement/frontmatter/tag ruleset produced by the audit
+- [AGENTS.md](../../AGENTS.md) — vault root; the canonical, tool-agnostic placement/frontmatter/tag ruleset produced by the audit (`CLAUDE.md` is just a pointer to it)
+- [[Sync Log]] — run summaries from the weekday 8:15 AM `morning-vault-sync` scheduled task
