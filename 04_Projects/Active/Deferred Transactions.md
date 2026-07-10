@@ -33,6 +33,10 @@ tags:
 - If month is closed, use first day of next month.
 - Use location entity to find fiscal periods.
 
+## Status Log
+
+- 2026-07-10 — repo `TRANCY_CargoWise_Integration`: open PR [#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2) "Trancy Discarded, Intacct improvements, and department mapping" on `feature/Intacct-Improvements-WIP`, no new commits. [[07_Meetings/2026-07-10 Trancy CargoWise Integration Checkpoint|Trancy CargoWise Integration Checkpoint]] meeting today.
+
 ## Links
 
 - [[06_Resources/Intacct/Intacct Hints]]

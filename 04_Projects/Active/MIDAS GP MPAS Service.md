@@ -28,6 +28,10 @@ Scaffold-DbContext "Server=[DB_SERVER]\PEFMBP;Database=MBP;User Id=sa;Password=[
 - [ ] Create CSV report with `recid`, `empnum`, `name`, status, date, and description.
 - [ ] Change app runtime context to dependency injection.
 
+## Status Log
+
+- 2026-07-10 — repo `MIDAS_GP_MPAS`: no new commits, 1 uncommitted file on `develop`.
+
 ## Links
 
 - [[05_Areas/Database/Database Index]]

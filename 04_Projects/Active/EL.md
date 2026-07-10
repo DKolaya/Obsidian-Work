@@ -88,6 +88,10 @@ Source repo docs checked 2026-07-09:
 
 - [ ] Review `ELBinder.sourceHash` storage policy: source identity meaning, max length, hash algorithm, and whether `nvarchar(100)` remains correct.
 
+## Status Log
+
+- 2026-07-10 — repo `CDH_EL`: 1 commit ("TipTap and Gembox line spacing fix") on `Sprint2/deployment-prep`, 16 uncommitted files. UAT round 1 questionnaire sent by Shannon Thai. [[07_Meetings/2026-07-10 EL Repo-Branching Review|EL Repo/Branching Review]] meeting today.
+
 ## Links
 
 - [[03_Todos/Work TODOs]]
