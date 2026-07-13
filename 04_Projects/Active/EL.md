@@ -13,6 +13,7 @@ tags:
 ## Notes
 
 - Engagement Letter work is active.
+- Audit trail + permissions implementation plan: [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]] (2026-07-13 — Audit.NET entity log + policy-based auth bridging the existing enum permission model).
 - Deferred editor/template work includes production export, DOCX fidelity, review/comment workflow, version/diff UX, and package-specific document flow.
 - SharePoint export is tracked in [[03_Todos/Work TODOs]].
 
@@ -88,8 +89,21 @@ Source repo docs checked 2026-07-09:
 
 - [ ] Review `ELBinder.sourceHash` storage policy: source identity meaning, max length, hash algorithm, and whether `nvarchar(100)` remains correct.
 
+#### Sprint 3 Touchpoint Feedback (from 2026-07-09 meeting)
+
+Source: [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|TS Internal Projects Touch Point]] — admin/stakeholder demo + feedback. Tracked in Monday under Sprint 3's feedback bucket ("Implement suggested changes based on user feedback"), not Sprint 2's — Sprint 2 was already deployed/closed by the time this feedback came in.
+
+- [ ] Allow editing directly inside the version-compare/side-by-side view (both panes are currently read-only). — Drew
+- [ ] Add a double-page/side-by-side view inside the single-version editor itself, not just the dedicated compare tab. — Drew
+- [ ] Track-changes/diff view for version comparison, so testers don't have to manually toggle full versions to spot edits.
+- [ ] Resolve "binder" naming collision with "engagement binder" — candidates: EL package, letter package, bundle, or reverting to "package."
+- [ ] Reviewer-edit workflow decision: let reviewer edit draft directly vs. bounce back to draft stage.
+- [ ] Delete-vs-inactivate policy for approved/locked template versions.
+- [ ] Compile full merge-field/doc-variable list (down to first/last/full name granularity) — Drew has FPA-side fields, Esther compiling admin asks.
+
 ## Status Log
 
+- 2026-07-09 — Sprint 2 EL app demo + UAT walkthrough given to admin/stakeholder group; feedback captured in [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|meeting note]] and folded into backlog above. UAT feedback due back 2026-07-17.
 - 2026-07-10 — repo `CDH_EL`: 1 commit ("TipTap and Gembox line spacing fix") on `Sprint2/deployment-prep`, 16 uncommitted files. UAT round 1 questionnaire sent by Shannon Thai. [[07_Meetings/2026-07-10 EL Repo-Branching Review|EL Repo/Branching Review]] meeting today.
 - 2026-07-13 — repo `CDH_EL`: now on `develop` branch (switched from cleanup branch), working tree clean, but a "Pre-develop fix stash" exists — verify no work was lost in the branch switch.
 

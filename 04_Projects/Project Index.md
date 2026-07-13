@@ -11,6 +11,7 @@ tags:
 ## Active
 
 - [[04_Projects/Active/AI Initiative|AI Initiative]] — FY2026-27 AI Roadmap
+- [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]] — Audit.NET entity audit + policy-based permission auth plan for CDH_EL
 
 ## Backlog
 
