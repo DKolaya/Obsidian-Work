@@ -31,6 +31,7 @@ Scaffold-DbContext "Server=[DB_SERVER]\PEFMBP;Database=MBP;User Id=sa;Password=[
 ## Status Log
 
 - 2026-07-10 — repo `MIDAS_GP_MPAS`: no new commits, 1 uncommitted file on `develop`.
+- 2026-07-13 — repo `MIDAS_GP_MPAS`: no new commits, still 1 uncommitted file, same branch. Note moved to `04_Projects/Done` despite open tasks above — verify intentional.
 
 ## Links
 

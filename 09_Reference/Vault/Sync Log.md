@@ -13,6 +13,19 @@ Morning-sync routine run summaries, newest first. Written automatically by the `
 
 <!-- Entries appended below by the sync routine. Do not edit entries by hand; add comments in your daily note instead. -->
 
+## 2026-07-13 08:34
+
+72h lookback (Monday morning covers weekend).
+
+- **Monday.com**: no new items or status changes for Drew since 2026-07-09 on EL Tasks / AI Weekly Tasks boards (W1/W2 still In Progress). Nothing added.
+- **Email**: 1 new actionable item added to [[03_Todos/Work TODOs]] (## From Email) — Sage Intacct company "LeadingAgeNY-imp" blocked, deactivates in 30 days. Skipped Claude.ai login links, bonus.ly FYI, parking-lot FYI, and an appsupport@ ticket notification (not addressed directly to Drew).
+- **Teams**: search hit a Graph rate limit (429) after 23/48 chats scanned — partial results, no @mentions/DMs to Drew found in the chats that were scanned.
+- **GitHub**: no review requests. [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) still has a **failing check** (Workers Build) — noted in [[03_Todos/Work TODOs]] (## GitHub). [CDHTS/TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2) unchanged, no CI configured.
+- **Meetings**: 1 stub created — [[07_Meetings/2026-07-13 TS Dev Team Planning Meeting]] (Patrick, Nate, Shannon, Drew).
+- **Repo activity** (`C:\Users\dkolaya\source\repos`, read-only): `CDH_EL` switched to `develop` (from a cleanup branch) with a "Pre-develop fix stash" present, working tree otherwise clean — see attention note. `CDH_FPA` and `MIDAS_GP_MPAS` unchanged, still 1 dirty file each, no new commits. `TRANCY_CargoWise_Integration` clean, PR #2 unchanged. Other dirty repos unchanged from last run: `InternalIntacctQueryApp` (46 files), `Midas_GP` (3), `LESCO_sync`/`MudMCP` (2 each), `Legal_Service`/`PEF_MPAS.Web` (1 each).
+- **Cleanup**: fixed corrupted/broken wikilinks in 6 files ([[04_Projects/Project Index]], [[05_Areas/Database/Database Index]], [[05_Areas/DevOps/DevOps Index]], [[06_Resources/Runbooks/Runbook Index]], [[06_Resources/Scripts/Script Index]], [[90_Archive/OneNote Raw/Drew @ Work]]) plus [[Home]] — all had a mangled `[[MIDAS GP MPAS Service...` link fragment (looked like a botched find/replace from moving that note into `04_Projects/Done`). Re-pointed all MIDAS links to the new `04_Projects/Done/MIDAS GP MPAS Service` location. Frontmatter on recently-touched notes already compliant. Inbox has nothing to triage.
+- **Needs attention**: pre-existing uncommitted changes were already in the working tree before this run (not made by this sync) — moved `Example Project` and `MIDAS GP MPAS Service` from `04_Projects/Active` to `04_Projects/Done`, consolidated `Todo Dashboard` into `Work TODOs`. Both moved notes still show open tasks / "State: active" — verify the Done move was intentional. `CDH_EL` now sits on `develop` with a stash named "Pre-develop fix stash" — confirm no in-progress cleanup-branch work needs to be popped/restored before it's lost. Teams search was only partial (rate-limited). `InternalIntacctQueryApp` still dirty (46 files, `master`) across multiple runs now — possible forgotten work.
+
 ## 2026-07-10 09:30
 
 First real run (no prior sync commit found — used 24h lookback).

@@ -6,9 +6,22 @@ source: [[90_Archive/OneNote Raw/Drew @ Work]]
 tags:
   - todo/work
   - work
+  - dashboard
 ---
 
 # Work TODOs
+
+## Next
+
+- [ ] 
+
+## Waiting
+
+- [ ] 
+
+## Backlog
+
+- [ ] 
 
 ## Active
 
@@ -53,16 +66,26 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 ## From Email
 
 - [ ] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT.
+- [ ] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation.
+
+## GitHub
+
+- No open PRs waiting on Drew's review.
+- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing.
 
 ## Fable
 
-- [ ] Audit Fable repo organization. #fable #important
+- [x] Audit Fable repo organization. #fable #important ✅ 2026-07-10
 - [ ] Use Fable for overall EL review, including current EL structure and repo organization. #fable #important
+
+## Done This Week
+
+- [x] Vault scaffold created
 
 ## Project Links
 
 - [[04_Projects/Active/EL]]
-- [[04_Projects/Active/MIDAS GP MPAS Service]]
+- [[04_Projects/Done/MIDAS GP MPAS Service]]
 - [[04_Projects/Active/FPA]]
 - [[04_Projects/Active/Deferred Transactions]]
 - [[06_Resources/Intacct/Intacct Hints]]

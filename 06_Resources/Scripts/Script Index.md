@@ -21,4 +21,4 @@ Use this for links to actual scripts, command snippets, and automation notes.
 
 ## Imported Script References
 
-- [[04_Projects/Active/MIDAS GP MPAS Service|MIDAS GP MPAS Service]]
+- [[04_Projects/Done/MIDAS GP MPAS Service|MIDAS GP MPAS Service]]

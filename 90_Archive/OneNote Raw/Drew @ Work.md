@@ -13,7 +13,7 @@ Imported OneNote page has been sorted into topic notes. The sanitized raw source
 ## Created Notes
 
 - [[03_Todos/Work TODOs]]
-- [[04_Projects/Active/MIDAS GP MPAS Service]]
+- [[04_Projects/Done/MIDAS GP MPAS Service]]
 - [[04_Projects/Active/EL]]
 - [[04_Projects/Active/FPA]]
 - [[04_Projects/Active/Deferred Transactions]]

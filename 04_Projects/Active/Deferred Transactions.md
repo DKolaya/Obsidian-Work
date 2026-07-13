@@ -36,6 +36,7 @@ tags:
 ## Status Log
 
 - 2026-07-10 — repo `TRANCY_CargoWise_Integration`: open PR [#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2) "Trancy Discarded, Intacct improvements, and department mapping" on `feature/Intacct-Improvements-WIP`, no new commits. [[07_Meetings/2026-07-10 Trancy CargoWise Integration Checkpoint|Trancy CargoWise Integration Checkpoint]] meeting today.
+- 2026-07-13 — repo `TRANCY_CargoWise_Integration`: PR #2 still open, no new commits, working tree clean, no CI checks configured on this branch.
 
 ## Links
 
