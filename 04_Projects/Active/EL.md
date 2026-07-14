@@ -12,6 +12,7 @@ tags:
 
 ## Notes
 
+- Active editor wargames: [[04_Projects/Active/EL Editor Wargames 2026-07-13|EL Editor Wargames 2026-07-13]].
 - Engagement Letter work is active.
 - Audit trail + permissions implementation plan: [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]] (2026-07-13 — Audit.NET entity log + policy-based auth bridging the existing enum permission model).
 - Deferred editor/template work includes production export, DOCX fidelity, review/comment workflow, version/diff UX, and package-specific document flow.
@@ -106,6 +107,7 @@ Source: [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|TS Internal Pr
 - 2026-07-09 — Sprint 2 EL app demo + UAT walkthrough given to admin/stakeholder group; feedback captured in [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|meeting note]] and folded into backlog above. UAT feedback due back 2026-07-17.
 - 2026-07-10 — repo `CDH_EL`: 1 commit ("TipTap and Gembox line spacing fix") on `Sprint2/deployment-prep`, 16 uncommitted files. UAT round 1 questionnaire sent by Shannon Thai. [[07_Meetings/2026-07-10 EL Repo-Branching Review|EL Repo/Branching Review]] meeting today.
 - 2026-07-13 — repo `CDH_EL`: now on `develop` branch (switched from cleanup branch), working tree clean, but a "Pre-develop fix stash" exists — verify no work was lost in the branch switch.
+- 2026-07-14 — repo `CDH_EL`: back on `feature/June/30/RTE-TipTap-cleanup`, 41 uncommitted files, WIP commit `37a1927` "Pre-develop fix WIP" (2026-07-13) on the branch — working tree not clean, worth checking nothing's stuck mid-edit.
 
 ## Links
 

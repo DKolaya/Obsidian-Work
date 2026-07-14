@@ -17,7 +17,8 @@ tags:
 
 ## Waiting
 
-- [ ] 
+- [ ] Shannon to investigate Billing app duplicate-client display (CCI 1984 / Custom Cylinders) — from [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|2026-07-09 touchpoint]].
+- [ ] EL UAT feedback due back from admin/stakeholder testers by 2026-07-17.
 
 ## Backlog
 
@@ -42,7 +43,7 @@ EL Tasks board (owner: Drew):
 - [x] Create text editor for letter creation/editing screens
 - [x] Review C# coding styles and standardization
 - [x] Select UI/UX for application
-- [ ] Create user acceptance testing document (with Shannon Thai) — In Progress
+- [x] Create user acceptance testing document (with Shannon Thai) — In Progress ✅ 2026-07-13
 - [x] Determine paragraph editing toolset features
 - [x] Create Solution and Repository
 - [x] Create engagement letter overview/search screen
@@ -65,8 +66,8 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 
 ## From Email
 
-- [ ] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT.
-- [ ] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation.
+- [x] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT. ✅ 2026-07-13
+- [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
 
 ## GitHub
 
