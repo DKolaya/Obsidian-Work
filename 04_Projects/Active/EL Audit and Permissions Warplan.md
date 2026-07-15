@@ -10,11 +10,17 @@ tags:
 
 # EL Audit and Permissions Warplan
 
+**Status (2026-07-14):** Phase 1 done. Phase 2 Tasks 2.1-2.3 done (Task 2.4 viewer stub skipped, still optional). Phase 3 not started. All work landed on `Drew/Sprint3/Audit`, not separate per-phase branches.
+
 > **For agentic workers:** Execute task-by-task (subagent-driven or inline). Steps use checkbox syntax for tracking. When implementation starts, copy the relevant phase into the repo at `docs/reference/plans/` per repo doc conventions (`.original.md` + compressed `.md` pair) so it travels with the branch.
 
 **Goal:** Add automatic field-level entity auditing (Audit.NET) and policy-based permission authorization (built-in ASP.NET Core) to CDH_EL, reusing the existing `PermissionModule`/`PermissionAction` enum model as the single source of truth.
 
 **Architecture:** Audit.NET's `AuditSaveChangesInterceptor` captures EF Core change diffs into a new `ELAuditLog` table in the same database (no base-class change to `ELContext`). Authorization gets a `PermissionRequirement` + one generic `AuthorizationHandler` that bridges `[Authorize(Policy = "Permission:{Module}:{Action}")]` to the existing `UserRecord.jsonPermissions` document via `IUserAdministrationService.HasPermissionAsync`. `AppPermissionGate` is refactored to call `IAuthorizationService` so component gating and attribute gating share one enforcement path.
+
+## Status Log
+
+- 2026-07-15 — CDH_EL: 8 commits on `Drew/Sprint3/Audit` completing Phase 2 Tasks 2.1-2.3 (package add, `[AuditIgnore]` stamps, `ELAuditLog` migration, interceptor wiring) plus a `UniqueUsername` dead-code fix surfaced during live testing.
 
 **Tech stack:** .NET 10, EF Core 10.0.8, `Audit.EntityFramework.Core` (v32.x, new package in `Lib`), built-in `Microsoft.AspNetCore.Authorization` (no new authz package), Auth0 cookie web-app auth (unchanged).
 
@@ -61,17 +67,17 @@ Known limitation to document in code: `EntityFrameworkDataProvider` writes audit
 
 ---
 
-## Phase 1 — Fix user attribution (branch: `feature/audit-user-attribution`)
+## Phase 1 — Fix user attribution (branch: `feature/audit-user-attribution`) — ✅ DONE 2026-07-14
 
 The "who" is broken today. Everything in Phases 2-3 depends on it. Small, ships alone.
 
-### Task 1.1: Register `IHttpContextAccessor` and wire it into factory-created contexts
+### Task 1.1: Register `IHttpContextAccessor` and wire it into factory-created contexts — ✅ DONE (commit `7f8a5f2`)
 
 **Files:**
 - Modify: `CDH_EL/Program.cs` (~line 96)
 - Modify: `Lib/DAL/ELContext.cs:37-52`
 
-- [ ] Collapse `ELContext`'s constructors into one with an optional accessor (factory resolves it from root DI; `IHttpContextAccessor` is a singleton backed by `AsyncLocal`, safe in a singleton factory):
+- [x] Collapse `ELContext`'s constructors into one with an optional accessor (factory resolves it from root DI; `IHttpContextAccessor` is a singleton backed by `AsyncLocal`, safe in a singleton factory):
 
 ```csharp
 public ELContext(DbContextOptions<ELContext> options, IHttpContextAccessor? httpContextAccessor = null)
@@ -83,48 +89,36 @@ public ELContext(DbContextOptions<ELContext> options, IHttpContextAccessor? http
 
 Delete the 2-arg ctor that null-sets the accessor and the unused 3-arg ctor. Check for direct `new ELContext(...)` call sites first (tests, design-time factory) and update them.
 
-- [ ] In `Program.cs`, before the factory registration:
+- [x] In `Program.cs`, before the factory registration:
 
 ```csharp
 builder.Services.AddHttpContextAccessor();
 ```
 
-- [ ] Make `ELContext.Username` a settable property with the accessor read as fallback, so Blazor-circuit code paths (where `HttpContext` can be null/stale after prerender) can stamp explicitly:
+- [x] Make `ELContext.Username` a settable property with the accessor read as fallback, so Blazor-circuit code paths (where `HttpContext` can be null/stale after prerender) can stamp explicitly. **Implemented with the claim-precedence resolved** (see verify note below): `"email"` claim → `ClaimTypes.Email` → `ClaimTypes.NameIdentifier` → `"unknown@user"`, matching `CurrentUserPermissionService` exactly — not plain `Identity.Name` as originally sketched here.
 
-```csharp
-private string? usernameOverride;
+- [x] Added `Lib.Tests/DAL/ELContextTests.cs`: accessor stamps email claim; `Username` override wins over accessor; neither present → `"unknown@user"`. 3/3 pass. (Required adding `<FrameworkReference Include="Microsoft.AspNetCore.App" />` to `Lib.Tests.csproj` for `DefaultHttpContext`/`HttpContextAccessor` concrete types.)
+- [x] `dotnet build` + run tests — full solution green; 3 pre-existing `EngagementLetterTemplateServiceTests` failures confirmed unrelated (same failures on unmodified `HEAD`).
+- [x] Manual check: booted app, logged in via `DevelopmentAuthenticationHandler`, landed on a real page (200) — proves the new factory ctor resolves `IHttpContextAccessor` from DI correctly. Did not do a raw-SQL row check (sqlcmd with the dev DB password inline got blocked by Claude's credential-leak guard) — unit tests + live boot cover it.
+- [x] Commit: `fix: stamp real username on factory-created ELContext audit columns` → actual commit `7f8a5f2` "Added httpContext and username override" (committed directly, not through the agent's git flow).
 
-public string Username
-{
-    get => usernameOverride
-        ?? httpContextAccessor?.HttpContext?.User?.Identity?.Name
-        ?? "unknown@user";
-    set => usernameOverride = value;
-}
-```
-
-- [ ] Add `Lib.Tests` test: context with fake accessor stamps `createdBy` from identity name; context with `Username` override prefers the override; context with neither stamps `"unknown@user"`.
-- [ ] `dotnet build` + run tests.
-- [ ] Manual check: run app, log in, save anything (e.g. admin user edit), confirm `updated_by` column now shows real email, not `unknown@user`.
-- [ ] Commit: `fix: stamp real username on factory-created ELContext audit columns`
-
-**Verify before starting:** whether `Identity.Name` is populated under Auth0 web-app flow (it maps `name` claim; may be display name, not email). If email wanted, read `ClaimTypes.Email` / `"email"` claim instead of `Identity.Name` — match what `CurrentUserPermissionService.GetCurrentUserIdentityAsync()` (`CurrentUserPermissionService.cs:85-109`) already does, and keep the two consistent.
+**Verify before starting:** whether `Identity.Name` is populated under Auth0 web-app flow (it maps `name` claim; may be display name, not email). If email wanted, read `ClaimTypes.Email` / `"email"` claim instead of `Identity.Name` — match what `CurrentUserPermissionService.GetCurrentUserIdentityAsync()` (`CurrentUserPermissionService.cs:85-109`) already does, and keep the two consistent. **Resolved:** used the full 3-step claim precedence, not just `ClaimTypes.Email`.
 
 ---
 
-## Phase 2 — Audit.NET entity audit (branch: `feature/audit-net-entity-log`)
+## Phase 2 — Audit.NET entity audit — ✅ Tasks 2.1-2.3 DONE 2026-07-14 (branch: actually `Drew/Sprint3/Audit`, not a separate `feature/audit-net-entity-log` — Drew confirmed the TipTap commit already riding on that branch is mid-PR and will land in develop on its own, so no need to isolate onto a fresh branch)
 
-### Task 2.1: Package + audit noise reduction
+### Task 2.1: Package + audit noise reduction — ✅ DONE (commit `a191e35`)
 
 **Files:**
 - Modify: `Lib/Lib.csproj`
 - Modify: `Lib/Models/BaseRecord.cs:16,24,32,40`
 
-- [ ] `dotnet add Lib package Audit.EntityFramework.Core` (latest v32.x).
-- [ ] Uncomment the four `[AuditIgnore]` attributes on `BaseRecord` (add `using Audit.EntityFramework;`). Rationale: `dateUpdatedUtc`/`updatedBy` change on every save — pure diff noise; the audit log row carries its own who/when.
-- [ ] Build. Commit: `chore: add Audit.EntityFramework.Core, exclude BaseRecord stamps from diffs`
+- [x] `dotnet add Lib package Audit.EntityFramework.Core` → resolved v32.2.0, matches expected v32.x.
+- [x] Uncomment the four `[AuditIgnore]` attributes on `BaseRecord` (add `using Audit.EntityFramework;`). Rationale: `dateUpdatedUtc`/`updatedBy` change on every save — pure diff noise; the audit log row carries its own who/when.
+- [x] Build. Commit: `chore: add Audit.EntityFramework.Core, exclude BaseRecord stamps from diffs`
 
-### Task 2.2: `ELAuditLog` entity + migration
+### Task 2.2: `ELAuditLog` entity + migration — ✅ DONE (commit `5d958f6`)
 
 **Files:**
 - Create: `Lib/Models/Audit/ELAuditAction.cs`
@@ -186,29 +180,28 @@ public class ELAuditLog
 }
 ```
 
-- [ ] `ELContext`: add `public DbSet<ELAuditLog> ELAuditLog { get; set; }`; in `OnModelCreating` add composite index `(tableName, primaryKey)` and index on `dateCreatedUtc`.
-- [ ] Migration: `dotnet ef migrations add add_table_ELAuditLog --project Lib` then rename file/class to timestamped convention if the generator's stamp differs from repo format (repo format: `{yyyyMMddHHmmss}_add_table_ELAuditLog.cs`, class `add_table_ELAuditLog`).
-- [ ] Inspect generated migration: table `ELAuditLog`, int identity `id`, nvarchar(100)/(100)/(100)/MAX, `datetime2`. Apply to dev DB, build, commit: `feat: add_table_ELAuditLog for Audit.NET change log`
+- [x] `ELContext`: add `public DbSet<ELAuditLog> ELAuditLog { get; set; }`; in `OnModelCreating` add composite index `(tableName, primaryKey)` and index on `dateCreatedUtc`.
+- [x] Migration: `dotnet ef migrations add add_table_ELAuditLog` generated the timestamp already in repo format (`20260714193325_add_table_ELAuditLog`) — no rename needed.
+- [x] Inspected generated migration — matched expected shape exactly (table `ELAuditLog`, int identity `id`, nvarchar(100)/(100)/(100)/MAX, `DateTime2`, 2 indexes). Applied to dev DB (`192.168.17.202\CDH_FPA` / `CDH_EL_ST_LIB3`), build, commit: `feat: add_table_ELAuditLog for Audit.NET change log`
 
-### Task 2.3: Interceptor + data provider wiring
+### Task 2.3: Interceptor + data provider wiring — ✅ DONE (commit `8af930d`) — **2 real deviations from the plan, both found via live-boot testing, not guessed**
 
 **Files:**
 - Modify: `CDH_EL/Program.cs` (factory registration ~line 96, plus one-time Audit.NET setup before `builder.Build()`)
 
-- [ ] Add interceptor to the factory options:
+- [x] Add interceptor to the factory options — actual namespace is `Audit.EntityFramework.AuditSaveChangesInterceptor`, **not** `Audit.EntityFramework.Interceptors.AuditSaveChangesInterceptor` as sketched here (compiler caught this immediately):
 
 ```csharp
 builder.Services.AddDbContextFactory<ELContext>(item =>
     item.UseSqlServer(connectionString, options => options.CommandTimeout(commandTimeout))
-        .AddInterceptors(new Audit.EntityFramework.Interceptors.AuditSaveChangesInterceptor()));
+        .AddInterceptors(new Audit.EntityFramework.AuditSaveChangesInterceptor()));
 ```
 
-- [ ] One-time Audit.NET config (private helper in `Program_Helpers.cs`, called from `Main`):
+- [x] One-time Audit.NET config, added to the existing `Program_Helpers.cs` partial (not a new file):
 
 ```csharp
 using Audit.Core;
 using Audit.EntityFramework;
-using Audit.EntityFramework.ConfigurationApi;
 using Lib.DAL;
 using Lib.Models.Audit;
 
@@ -216,13 +209,13 @@ private static void ConfigureAuditNet()
 {
     Audit.Core.Configuration.Setup()
         .UseEntityFramework(ef => ef
-            .UseDbContext<ELContext>()
-            .AuditTypeMapper(t => typeof(ELAuditLog))
-            .AuditEntityAction<ELAuditLog>((ev, entry, audit) =>
+            // NOTE: deliberately NOT calling .UseDbContext<ELContext>() — see deviation #1 below
+            .AuditTypeMapper(_ => typeof(ELAuditLog))
+            .AuditEntityAction<ELAuditLog>((auditEvent, entry, audit) =>
             {
-                var efEvent = ev.GetEntityFrameworkEvent();
+                var efEvent = auditEvent.GetEntityFrameworkEvent();
                 audit.tableName = entry.Table;
-                audit.primaryKey = string.Join(",", entry.PrimaryKey.Select(k => $"{k.Value}"));
+                audit.primaryKey = string.Join(",", entry.PrimaryKey.Select(item => $"{item.Value}"));
                 audit.enumAuditAction = entry.Action switch
                 {
                     "Insert" => ELAuditAction.Insert,
@@ -232,18 +225,23 @@ private static void ConfigureAuditNet()
                 audit.jsonChanges = entry.ToJson();
                 audit.username = (efEvent?.GetDbContext() as ELContext)?.Username ?? "unknown@user";
                 audit.dateCreatedUtc = DateTime.UtcNow;
-                return true; // false skips saving this row
+                return true;
             })
             .IgnoreMatchedProperties(true));
 }
 ```
 
-- [ ] Exact API names drift between Audit.NET versions — verify `AuditTypeMapper`/`AuditEntityAction`/`GetEntityFrameworkEvent` against the installed package before writing; adjust to the fluent API the package exposes.
-- [ ] Build, run. Edit a template or user in the UI; query `SELECT TOP 10 * FROM ELAuditLog ORDER BY id DESC` — expect one row per changed entity with JSON old/new values and real username.
-- [ ] Verify dev-auth branch still boots (`DevelopmentAuthenticationHandler` path) and audit rows record the dev identity.
-- [ ] Commit: `feat: wire Audit.NET interceptor writing ELAuditLog change log`
+- [x] Verified the fluent API against the actual installed v32.2.0 assembly (`Audit.EntityFramework.Core.xml` doc comments in the NuGet cache) before writing — `AuditTypeMapper`, `AuditEntityAction<T>`, `GetEntityFrameworkEvent()`, `IgnoreMatchedProperties`, `AuditSaveChangesInterceptor` all confirmed to exist as sketched. `ExcludeValidationResults` does **not** exist on this fluent path (it's `AuditDbContext`-base-class-only) — turned out not to matter, see deviation #2.
 
-### Task 2.4 (optional, same branch): Admin audit viewer stub
+**Deviation #1 — dropped `.UseDbContext<ELContext>()`.** Calling it (as originally sketched) constructs a *brand-new* `ELContext` via the parameterless dev-only ctor → no `DbContextOptions` configured → `InvalidOperationException: No database provider has been configured`. Per the package docs, omitting `UseDbContext` entirely defaults to reusing the *same* `ELContext` instance already being audited — which is exactly the same-DB/same-context design decision #3 above calls for. Caught via live boot (500 error), not by reading docs first.
+
+**Deviation #2 — pre-existing dead code crashed Audit.NET's default entity validation.** `Lib/Attributes/CustomValidation/UserRecord/UniqueUsername.cs` (applied to `UserRecord.username`) had its real DB-lookup logic commented out years ago (targeted the retired `FPAContext`), leaving zero `IsValid` override. Nothing in the app ever ran `System.ComponentModel.DataAnnotations.Validator` over `UserRecord` until Audit.NET's default entity-validation step did — instant `NotImplementedException` on every save. Fixed as a no-op returning `ValidationResult.Success` (uniqueness is already DB-enforced via `[Index(nameof(username), IsUnique = true)]`), zero behavior change otherwise. Separate commit: `fix: implement no-op UniqueUsername.IsValid to stop NotImplementedException` (`5425eec`). This is exactly the kind of latent bug the plan's Task 2.3 "verify against installed package" risk note anticipated, just one layer deeper than API-name drift.
+
+- [x] Build, run — verified end-to-end against the real dev DB, not just unit tests: logged in as a **fresh** dev-auth identity (had to use a brand-new email — `EnsureUserByEmailAsync` short-circuits with zero `SaveChanges` calls for an existing user, so the first attempt with the already-seeded `codex.dev@cdhcpa.com` proved nothing), hit `/admin`, and confirmed in the server log: `INSERT INTO [UserRecord] (...)` immediately followed by `INSERT INTO [ELAuditLog] ([date_created_utc], [enum_audit_action], [json_changes], [primary_key], [table_name], [username])` in the same request. Left one harmless test row (`audit.phase2.check@cdhts.com`) in the dev `UserRecord` table — not cleaned up (would've needed the DB password on a command line, which Claude's credential-leak guard correctly blocked); low-risk, matches the existing seeded-test-user pattern.
+- [x] Verified dev-auth branch boots and audit rows record the dev identity correctly (see above).
+- [x] Commit: `feat: wire Audit.NET interceptor writing ELAuditLog change log` (`8af930d`)
+
+### Task 2.4 (optional, same branch): Admin audit viewer stub — ⏸ SKIPPED for now (still optional/deferrable per plan)
 
 Blazor page `Admin/AdminAuditLog.razor` behind `Permissions`/`View` gate — HxGrid over `ELAuditLog` newest-first, filter by table/user/date. HAVIT MCP check before writing markup (per global rule). Defer if sprint-pressed; table is queryable via SQL meanwhile.
 
@@ -399,6 +397,14 @@ isAuthorized = result.Succeeded;
 
 Business events ("approved binder v3", "issued document", "inactivated template") are not field diffs — Audit.NET doesn't cover intent. When approval workflow lands (see `ELBinderApproval`/`ELDocumentApproval` entities, currently placeholder-stage): add `ELDomainEvent` table (`add_table_ELDomainEvent`: `enum_event_type`, subject FK columns, `json_payload`, `username`, `date_created_utc`) + `IDomainAuditService` in Lib, called explicitly from workflow services. Design then; entity shapes will be clearer.
 
+### Task 4.x (follow-up): AuditAlways / AuditDoNotDisplay attribute parity with FPA
+
+FPA's hand-rolled audit (`Lib/Models/AuditableBaseRecord.cs` in CDH_FPA) has two custom attrs EL's Audit.NET setup has no equivalent for yet:
+- `AuditAlwaysAttribute` — force a field into the changelog even when compare says unchanged (FPA use: fields where "unchanged" is itself meaningful to show).
+- `AuditDoNotDisplayAttribute` — capture the field in the audit row but flag it non-UI-displayable (FPA use: sensitive/noisy fields that should log but not render in an activity feed).
+
+EL only has Audit.NET's native `[AuditIgnore]` (all-or-nothing exclude) — no per-field "always include" or "log but hide" granularity. Needed once EL builds an audit/activity viewer (Task 2.4, currently skipped) where field-level display control matters. Add as custom attrs in `Lib/Attributes/CustomAttributes.cs` + check them in the `AuditEntityAction<ELAuditLog>` callback in [Program_Helpers.cs](../../../../source/repos/CDH_EL/CDH_EL/Program_Helpers.cs) before serializing `jsonChanges`.
+
 ## Phase 5 — Production lockdown (DEFERRED, pre-go-live gate)
 
 - Flip `UserPermissionDocument.UatBootstrapDefault()` → `Empty()` (3 call sites: `UserRecord` ctor, `FromJson` blank fallback, `GetPermissionDocumentByEmailAsync` unknown-user branch).
@@ -417,7 +423,8 @@ Business events ("approved binder v3", "issued document", "inactivated template"
 
 ## Risks / open items
 
-- Audit.NET fluent API names drift across versions — verify against installed package docs before Task 2.3.
+- Audit.NET fluent API names drift across versions — verify against installed package docs before Task 2.3. **Confirmed real**: `AuditSaveChangesInterceptor` namespace and `.UseDbContext<ELContext>()` behavior both differed from the plan's assumption; see Task 2.3 deviations above.
+- One harmless test `UserRecord` row (`audit.phase2.check@cdhts.com`) left in the dev DB from Task 2.3 verification — not cleaned up yet.
 - `Identity.Name` under Auth0 may be display name, not email — resolve in Task 1.1 before anything downstream trusts `Username`.
 - Audit row insert = second `SaveChanges`, not same transaction — documented, acceptable v1.
 - `ELDocumentRevision.jsonChanges`-style large JSON bodies (TipTap docs) will produce large audit rows on document saves — if `ELAuditLog` bloats, add `[AuditIgnore]` to the heavy JSON columns or exclude `ELDocumentRevision` and rely on the revision table itself as its own history.

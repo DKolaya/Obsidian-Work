@@ -13,6 +13,19 @@ Morning-sync routine run summaries, newest first. Written automatically by the `
 
 <!-- Entries appended below by the sync routine. Do not edit entries by hand; add comments in your daily note instead. -->
 
+## 2026-07-15 08:15
+
+24h lookback.
+
+- **Monday.com**: no new items or status changes for Drew on EL Tasks / AI Weekly Tasks boards since 2026-07-14 — all already reflected in [[03_Todos/Work TODOs]]. One new EL Tasks item appeared ("Clean up MVC code if unused", created 2026-07-14 16:11) but has no owner — not added.
+- **Email**: no actionable items added. Skipped: continuation of Nathan Sawyer's Voluntary Legal Service Plan thread with Chris Allen (Drew not the direct addressee) and an appsupport@ ticket auto-notification (#131760, informational only).
+- **Teams**: search hit Graph rate limits on both attempts (0/48, then 0/48 again) — skipped, no results available this run.
+- **GitHub**: no review requests. Drew's open PRs unchanged from last check: [CDHTS/CDH_EL#9](https://github.com/CDHTS/CDH_EL/pull/9), [DKolaya/CharacterCafe#108](https://github.com/DKolaya/CharacterCafe/pull/108), [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104), [CDHTS/TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [CDHTS/PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350). No notifications surfaced. Did not re-check individual CI status this run (timeboxed).
+- **Meetings**: only event today is an all-day "TS Summer Gathering" placeholder (`showAs: free`) — skipped per rule, no stub created.
+- **Repo activity** (`C:\Users\dkolaya\source\repos`, read-only): `CDH_EL` (`Drew/Sprint3/Audit`) — 8 new commits completing Phase 2 Tasks 2.1-2.3 of the audit/permissions warplan (package add, `ELAuditLog` migration, interceptor wiring, plus a `UniqueUsername` dead-code fix) — logged in [[04_Projects/Active/EL Audit and Permissions Warplan]]. No other repo had new commits. Dirty-file counts unchanged from last run: `InternalIntacctQueryApp` (46, `master`), `Midas_GP` (3), `LESCO_sync`/`MudMCP` (2 each), `Legal_Service`/`CDH_FPA`/`MIDAS_GP_MPAS`/`PEF_MPAS.Web` (1 each).
+- **Cleanup**: no broken wikilinks found; all indexed folders' indexes still current; Inbox has nothing to triage; no notes modified in the last 3 days besides the Warplan (already frontmatter-compliant).
+- **Needs attention**: `InternalIntacctQueryApp` still dirty (46 files, `master`) across four runs now — likely forgotten work. Teams results fully unavailable again this run (rate-limited on both attempts, 0 chats scanned either time) — two runs in a row with degraded/no Teams coverage, may be worth checking the connector. Pre-existing uncommitted change to [[04_Projects/Active/EL Audit and Permissions Warplan]] from prior session work (Phase 1-2 checkbox updates) included in this run's commit.
+
 ## 2026-07-14 08:40
 
 24h lookback.
