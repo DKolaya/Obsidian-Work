@@ -50,8 +50,8 @@ Personal tie-in: supports my goal to research + deliver 2-3 practical AI improve
 
 ## My Weekly Tasks (Q1)
 
-- [x] W1: Platform research — Claude (Anthropic) *(In Progress on board)*
-- [x] W2: Platform research — ChatGPT Enterprise/OpenAI *(In Progress on board)*
+- [ ] W1: Platform research — Claude (Anthropic) *(In Progress on board)*
+- [ ] W2: Platform research — ChatGPT Enterprise/OpenAI *(In Progress on board)*
 - [ ] W3: Platform research — Microsoft 365 Copilot
 - [ ] W4: Platform research — Google Gemini
 - [ ] W5: Platform research — Codex vs Claude Code — head start: [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|workflow audit report (2026-07)]] compares both tools over 150 real sessions
@@ -68,6 +68,9 @@ Personal tie-in: supports my goal to research + deliver 2-3 practical AI improve
 
 The Anthropic vs. OpenAI enterprise comparison (W1/W2/W6/W12 work) lives in:
 - [[06_Resources/AI Platforms/Anthropic vs OpenAI Enterprise Comparison|Anthropic vs OpenAI Enterprise Comparison]]
+
+Company-by-company research lives in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]]:
+- [[06_Resources/AI Platforms/Anthropic Company Profile|Anthropic Company Profile]] — products, uses, quality, adoption, business trends, sentiment, risks, and pilot guidance (verified 2026-07-15)
 
 Upcoming platform write-ups (Copilot, Gemini, Codex vs Claude Code) should get their own notes in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]] as those weeks come up, then roll into the same v1/v2 brief.
 

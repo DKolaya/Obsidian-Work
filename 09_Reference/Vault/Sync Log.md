@@ -13,6 +13,19 @@ Morning-sync routine run summaries, newest first. Written automatically by the `
 
 <!-- Entries appended below by the sync routine. Do not edit entries by hand; add comments in your daily note instead. -->
 
+## 2026-07-16 (24h lookback)
+
+- **Monday.com**: connector unavailable — `get_user_context` failed `net::ERR_NETWORK_IO_SUSPENDED` on two attempts. Skipped entirely, no items pulled.
+- **Email**: connector unavailable — same network error on `get_me`. Skipped.
+- **Teams**: connector unavailable — same network error, no search attempted. Third run in a row with degraded/no Teams coverage (prior two runs hit Graph rate limits); combined with today's outage across all Microsoft 365 tools, worth checking the M365 MCP connection.
+- **Calendar**: skipped (same connector outage).
+- **GitHub**: no review requests, no notifications. Drew's 5 open PRs unchanged: [CDHTS/CDH_EL#9](https://github.com/CDHTS/CDH_EL/pull/9), [DKolaya/CharacterCafe#108](https://github.com/DKolaya/CharacterCafe/pull/108), [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104), [CDHTS/TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [CDHTS/PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350).
+- **Meetings**: no stubs created (calendar connector down).
+- **Repo activity** (`C:\Users\dkolaya\source\repos`, read-only): no new commits in any repo since last run — `CDH_EL`'s 8 Phase-2 audit commits (already logged in [[04_Projects/Active/EL Audit and Permissions Warplan]]) all predate 2026-07-15's sync. Dirty-file counts unchanged: `InternalIntacctQueryApp` (46, `master`), `Midas_GP` (3), `LESCO_sync`/`MudMCP` (2 each), `CDH_FPA`/`Legal_Service`/`MIDAS_GP_MPAS`/`PEF_MPAS.Web` (1 each).
+- **Cleanup**: no broken wikilinks found in files touched this run; all indexed folders current; Inbox empty of triageable items.
+- **Pre-existing uncommitted work** (from a prior session, included in this run's commit): new [[06_Resources/AI Platforms/Anthropic Company Profile]] plus updates to [[06_Resources/AI Platforms/AI Platforms Index]], [[06_Resources/AI Platforms/Anthropic vs OpenAI Enterprise Comparison]], and [[04_Projects/Active/AI Initiative]] linking it in — deep Anthropic research (business, product, security, pricing, pilot design). Verified frontmatter-compliant and all wikilinks resolve.
+- **Needs attention**: `InternalIntacctQueryApp` still dirty (46 files, `master`) across five runs now — likely forgotten work. All three Microsoft 365 connector tools (Monday is separate but also down) failed with the same network-suspended error this run — if this repeats tomorrow, connector needs a real look rather than a retry.
+
 ## 2026-07-15 08:15
 
 24h lookback.

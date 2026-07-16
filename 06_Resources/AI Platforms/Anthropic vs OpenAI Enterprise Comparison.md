@@ -102,6 +102,10 @@ Lesson for next time: a claim reading like "hallucinated lore" isn't evidence it
 4. Track the export-control/safety-review pattern as a recurring vendor-risk line item for both companies, not an Anthropic-specific anecdote.
 5. Re-verify this table before the W13 Q1 checkpoint presentation (Sep 21–25 2026) — both lineups are one week old as of this writing.
 
+## Personal Notes
+
+- Claude has more "thinking" capabilities but is more expensive while ChatGPT is cheaper but tends to "cheat". Depends on what the application is, if you need high reasoning skills (for software dev or walking through something that might not have a ton of documented implementations etc) or need something less expensive. ChatGPT is more like an answer sheet it has a lot of the answers but if it runs into something new that it doesn't have the answer for it will struggle a lot. Claude is more like a professor, it is really smart and knows most of the answers but doesn't know/remember everything however it can reason though most things it doesn't know and figure them out.
+
 ## Links
 
 - [[04_Projects/Active/AI Initiative]]

@@ -8,13 +8,24 @@ tags:
 
 # AI Platforms Index
 
-Reference notes feeding the [[04_Projects/Active/AI Initiative|AI Initiative]] platform/cost comparison brief (Initiative 1: Platform Literacy).
+Master list for AI-company profiles, platform research, and comparisons feeding the [[04_Projects/Active/AI Initiative|AI Initiative]] platform/cost brief (Initiative 1: Platform Literacy).
+
+## Company profiles
+
+- [[06_Resources/AI Platforms/Anthropic Company Profile|Anthropic Company Profile]] — business, products, use cases, software quality, sentiment, economics, risks, and CDH pilot guidance; verified 2026-07-15
+
+## Company research queue
+
+- OpenAI
+- Microsoft AI / Copilot
+- Google DeepMind / Gemini
+- Additional vendors as Initiative 1 expands
 
 ## Comparisons
 
 - [[06_Resources/AI Platforms/Anthropic vs OpenAI Enterprise Comparison|Anthropic vs OpenAI Enterprise Comparison]] — W1/W2/W6/W12
 
-## Planned (not yet written)
+## Platform and product research queue
 
 - Microsoft 365 Copilot — W3
 - Google Gemini — W4
