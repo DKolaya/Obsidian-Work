@@ -10,7 +10,7 @@ tags:
 
 # EL Audit and Permissions Warplan
 
-**Status (2026-07-14):** Phase 1 done. Phase 2 Tasks 2.1-2.3 done (Task 2.4 viewer stub skipped, still optional). Phase 3 not started. All work landed on `Drew/Sprint3/Audit`, not separate per-phase branches.
+**Status (2026-07-16):** Phase 1 done. Phase 2 Tasks 2.1-2.3 done (Task 2.4 viewer stub skipped, still optional). Phase 3 Tasks 3.1-3.5 done; 3.6 (caching, optional) not started. All work landed on `Drew/Sprint3/Audit`, not separate per-phase branches.
 
 > **For agentic workers:** Execute task-by-task (subagent-driven or inline). Steps use checkbox syntax for tracking. When implementation starts, copy the relevant phase into the repo at `docs/reference/plans/` per repo doc conventions (`.original.md` + compressed `.md` pair) so it travels with the branch.
 
@@ -20,6 +20,8 @@ tags:
 
 ## Status Log
 
+- 2026-07-16 (cont.) — CDH_EL: Phase 3 Task 3.5 done, uncommitted. Added `[Authorize(Policy = ...)]` page-level hard gates to all 4 admin pages (`AdminDashboard`/`AdminUsers` → `UserManagementView`, `AdminUserEdit` → `UserManagementEdit`, `AdminUserPermissions` → `PermissionsEdit`). `/editor/import-docx` endpoint from the plan's ground truth **does not exist on this branch** — confirmed via repo-wide grep for `import-docx`/`ImportDocx`, zero hits; matches memory note that the DOCX import vertical only lives on `feature/June/30/RTE-TipTap-cleanup`, not this Sprint3/Audit branch (which forks from develop). Audited remaining mapped endpoints (`Program.cs` root redirect, `editor/preview-pdf/{token}`, `AuthEndpoints.cs`) — all already have `.RequireAuthorization()` where appropriate, nothing missing. **Denial path verified live end-to-end**, not just inline reasoning: provisioned a fresh dev-auth test user (`audit.phase3.denial@cdhts.com`, auto-created via `EnsureUserByEmailAsync` with UAT-default FullAccess, confirmed in server log — `INSERT INTO [UserRecord]` + matching `[ELAuditLog]` row), logged back in as own admin identity, used the live Admin UI (`/admin/users/6/permissions`) to strip that test user's `UserManagement` module permissions to empty, then switched dev-auth back to the test identity and hit `/admin`: server returned `GET /admin → 403 Forbidden` with log line `AuthenticationScheme: Development was forbidden.` — the new page-level policy gate correctly denies. Restored the test user's permissions back to full access afterward and reverted `appsettings.Development.json`'s `DevelopmentAuthentication` block to its original disabled state (`git diff` on that file is empty). Left the test `UserRecord` row itself in place (harmless, matches Task 2.3 precedent).
+- 2026-07-16 — CDH_EL: Phase 3 Tasks 3.1-3.4 implemented on `Drew/Sprint3/Audit` (uncommitted): `PermissionPolicyNames` catalog + tests (`Lib/Models/User/Permissions/PermissionPolicyNames.cs`), `PermissionRequirement`/`PermissionAuthorizationHandler` (`CDH_EL/Authorization/`), 24-policy registration loop in `Program.cs` replacing bare `AddAuthorization()`, `AppPermissionGate.razor` refactored onto `IAuthorizationService`/`AuthenticationStateTask` (dropped `IUserPermissionService` dependency). Verified via dev-auth boot (`DevelopmentAuthentication:Enabled` toggled true then reverted, no diff left): Templates page and Admin page (`AppPermissionGate`-gated) both render normally for full-access UAT-default user, no console/server errors. Did not yet test the denial path (would need a real non-full-access user or a temp permission-doc edit — deferred to Task 3.5 verification alongside page hardening). Repo pointer added: `docs/reference/plans/EL-AUDIT-PERMISSIONS-PLAN.md`.
 - 2026-07-15 — CDH_EL: 8 commits on `Drew/Sprint3/Audit` completing Phase 2 Tasks 2.1-2.3 (package add, `[AuditIgnore]` stamps, `ELAuditLog` migration, interceptor wiring) plus a `UniqueUsername` dead-code fix surfaced during live testing.
 
 **Tech stack:** .NET 10, EF Core 10.0.8, `Audit.EntityFramework.Core` (v32.x, new package in `Lib`), built-in `Microsoft.AspNetCore.Authorization` (no new authz package), Auth0 cookie web-app auth (unchanged).
@@ -247,9 +249,9 @@ Blazor page `Admin/AdminAuditLog.razor` behind `Permissions`/`View` gate — HxG
 
 ---
 
-## Phase 3 — Policy-based authorization (branch: `feature/policy-permission-auth`)
+## Phase 3 — Policy-based authorization (branch: actually `Drew/Sprint3/Audit`, same as Phase 2 — see Phase 2 header rationale)
 
-### Task 3.1: Policy names catalog (Lib)
+### Task 3.1: Policy names catalog (Lib) — ✅ DONE 2026-07-16 (uncommitted)
 
 **Files:**
 - Create: `Lib/Models/User/Permissions/PermissionPolicyNames.cs`
@@ -274,10 +276,10 @@ public static class PermissionPolicyNames
 }
 ```
 
-- [ ] Lib.Tests: `For(PermissionModule.Templates, PermissionAction.Edit) == PermissionPolicyNames.TemplatesEdit`; loop-test every const matches `For(...)` for its pair (catches typo drift).
-- [ ] Commit: `feat: add PermissionPolicyNames catalog`
+- [x] Lib.Tests: `PermissionPolicyNamesTests.cs` — 3 theory cases for `For(...)` + one test asserting every const matches `For(...)` for its pair. 4/4 pass.
+- [ ] Commit: `feat: add PermissionPolicyNames catalog` — not yet committed (Phase 3 work still uncommitted as of 2026-07-16)
 
-### Task 3.2: Requirement + handler (web)
+### Task 3.2: Requirement + handler (web) — ✅ DONE 2026-07-16 (uncommitted)
 
 **Files:**
 - Create: `CDH_EL/Authorization/PermissionRequirement.cs`
@@ -326,9 +328,11 @@ public sealed class PermissionAuthorizationHandler(IUserAdministrationService us
 
 Claim precedence must mirror `CurrentUserPermissionService.GetCurrentUserIdentityAsync()` (`CurrentUserPermissionService.cs:85-109`) — read that file and copy its exact order.
 
-- [ ] Commit: `feat: add PermissionRequirement and authorization handler`
+**Deviation from sketch:** implemented 3-step precedence (`"email"` → `ClaimTypes.Email` → `ClaimTypes.NameIdentifier`), not the 2-step sketch above — matches `CurrentUserPermissionService` and `ELContext.Username` exactly (confirmed both read the same 3 claims in that order as of 2026-07-16).
 
-### Task 3.3: Register policies (Program.cs)
+- [ ] Commit: `feat: add PermissionRequirement and authorization handler` — not yet committed
+
+### Task 3.3: Register policies (Program.cs) — ✅ DONE 2026-07-16 (uncommitted)
 
 **Files:**
 - Modify: `CDH_EL/Program.cs:131`
@@ -352,10 +356,10 @@ builder.Services.AddAuthorization(options =>
 });
 ```
 
-- [ ] Build, boot, confirm login flow unchanged (policies additive — nothing references them yet).
-- [ ] Commit: `feat: register Permission:{Module}:{Action} policies at startup`
+- [x] Build, boot, confirm login flow unchanged — dev-auth boot: Templates page + Admin page both rendered normally, no console/server errors.
+- [ ] Commit: `feat: register Permission:{Module}:{Action} policies at startup` — not yet committed
 
-### Task 3.4: Single enforcement path — refactor `AppPermissionGate`
+### Task 3.4: Single enforcement path — refactor `AppPermissionGate` — ✅ DONE 2026-07-16 (uncommitted)
 
 **Files:**
 - Modify: `CDH_EL/Components/Shared/AppPermissionGate.razor`
@@ -371,21 +375,22 @@ isAuthorized = result.Succeeded;
 
 (`@inject IAuthorizationService AuthorizationService`, cascading `Task<AuthenticationState>`.) Component keeps its UX (access-denied card); the *decision* now flows through the same policy pipeline as attributes. Keep component parameters unchanged so the 7 existing usages don't churn.
 
-- [ ] Verify each gated page manually: Dashboard, Landing, HeaderFooterDesigner, AdminDashboard, AdminUsers, AdminUserEdit, AdminUserPermissions — with a full-access user (UAT default) all render.
-- [ ] Temporarily flip own permission doc to test denial path renders the access-denied card (then restore).
-- [ ] Commit: `refactor: AppPermissionGate authorizes via policy pipeline`
+- [x] Verify gated pages manually: Templates + Admin dashboard render for full-access dev user (UAT default). Did not walk the full 7-page list (Dashboard, Landing, HeaderFooterDesigner, AdminUserEdit, AdminUserPermissions not individually hit) — spot-check only.
+- [ ] Temporarily flip own permission doc to test denial path renders the access-denied card (then restore) — NOT done yet, deferred alongside Task 3.5.
+- [ ] Commit: `refactor: AppPermissionGate authorizes via policy pipeline` — not yet committed
 
-### Task 3.5: Harden pages + endpoints with policy attributes
+### Task 3.5: Harden pages + endpoints with policy attributes — ✅ DONE 2026-07-16 (uncommitted)
 
 **Files:**
 - Modify: admin pages (`Admin/*.razor`), `Template/*.razor` as appropriate
 - Modify: `CDH_EL/Endpoints/EditorImportEndpoints.cs`
 
-- [ ] Admin pages: `@attribute [Authorize(Policy = PermissionPolicyNames.UserManagementView)]` (page-level hard gate on top of in-page `AppPermissionGate`). Map: AdminDashboard/AdminUsers → `UserManagementView`; AdminUserEdit → `UserManagementEdit`; AdminUserPermissions → `PermissionsEdit`.
-- [ ] `/editor/import-docx`: add `.RequireAuthorization(PermissionPolicyNames.TemplatesEdit)` — currently unprotected.
-- [ ] Audit remaining mapped endpoints for missing `.RequireAuthorization()`.
-- [ ] Verify desktop + mobile widths on touched pages; MVC `HomeController.Index` + one Blazor page render (mixed-surface rule).
-- [ ] Commit: `feat: enforce permission policies on admin pages and import endpoint`
+- [x] Admin pages: `@attribute [Authorize(Policy = PermissionPolicyNames.UserManagementView)]` (page-level hard gate on top of in-page `AppPermissionGate`). Map: AdminDashboard/AdminUsers → `UserManagementView`; AdminUserEdit → `UserManagementEdit`; AdminUserPermissions → `PermissionsEdit`.
+- [x] `/editor/import-docx`: **does not exist on this branch** — `CDH_EL/Endpoints/EditorImportEndpoints.cs` and any `import-docx`/`ImportDocx` reference confirmed absent via repo-wide grep. That vertical lives only on `feature/June/30/RTE-TipTap-cleanup` (separate branch), not on this Sprint3/Audit branch. No action possible/needed here; re-check if that branch's work merges into develop later.
+- [x] Audited remaining mapped endpoints — `Program.cs` root redirect + `editor/preview-pdf/{token}`, and `AuthEndpoints.cs` (`/login`, `/logout`, `/signed-out`) — all already correctly gated (`.RequireAuthorization()` or intentional `.AllowAnonymous()`). Nothing missing.
+- [ ] Desktop + mobile width verification not done — only functional/authz behavior verified so far (403 test below). Do before commit if this is treated as UI-affecting.
+- [x] **Denial path verified live** (stronger than the sketch below): fresh dev-auth test user, stripped `UserManagement` via live Admin UI, confirmed `403 Forbidden` + `AuthenticationScheme: Development was forbidden.` in server log, then restored. See Status Log entry for full sequence.
+- [ ] Commit: `feat: enforce permission policies on admin pages and import endpoint` — not yet committed; message should drop "and import endpoint" since that part doesn't apply here, e.g. `feat: enforce permission policies on admin pages`.
 
 ### Task 3.6 (optional): Per-request permission caching
 

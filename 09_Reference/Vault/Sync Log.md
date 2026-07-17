@@ -13,6 +13,18 @@ Morning-sync routine run summaries, newest first. Written automatically by the `
 
 <!-- Entries appended below by the sync routine. Do not edit entries by hand; add comments in your daily note instead. -->
 
+## 2026-07-17 08:15 (24h lookback)
+
+- **Monday.com**: no new items or status changes for Drew on EL Tasks / AI Weekly Tasks boards since 2026-07-16 — all already reflected in [[03_Todos/Work TODOs]]. Ownerless "Clean up MVC code if unused" item (created 07-14) still has no owner — not added.
+- **Email**: no actionable items added. 7 emails since last run; only one unread (Nathan Sawyer reply on Integration Testing/Transactions thread) but addressed to the team, not a direct ask of Drew — skipped. Rest were FYI (GP server maintenance, Legal Service Plan update, group/team join notices, vendor marketing).
+- **Teams**: searched, 0 mentions/DMs found for Drew since last run.
+- **Calendar**: 1 real meeting today — created [[07_Meetings/2026-07-17 Drew Check-in|Drew Check-in]] (1:1 w/ Patrick, 12:00 PM ET) and added to [[07_Meetings/Meeting Index]]. Skipped Drew's own "Summer Friday hours" OOF block (self-organized, not a meeting).
+- **GitHub**: no review requests, no notifications. [DKolaya/CharacterCafe#108](https://github.com/DKolaya/CharacterCafe/pull/108) closed (not merged) 2026-07-16 — no longer in Drew's open PR list. Remaining 4 open PRs: [CDHTS/CDH_EL#9](https://github.com/CDHTS/CDH_EL/pull/9) (new commit "Code Suggestion for #9" landed 2026-07-16, no failing checks), [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) (Workers Build still failing, already flagged in [[03_Todos/Work TODOs]]), [CDHTS/TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [CDHTS/PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350) (stale since Feb, unchanged).
+- **Repo activity** (`C:\Users\dkolaya\source\repos`, read-only): `CDH_EL` now on `feature/June/30/RTE-TipTap-cleanup` (8 dirty files, GemBox/renderer WIP) — new commit `c94ede7` synced to PR #9. Separately, `Drew/Sprint3/Audit`'s Phase 3 work (Tasks 3.1-3.5, per [[04_Projects/Active/EL Audit and Permissions Warplan]]) is **not committed** — it's sitting in `stash@{0}` ("WIP on Drew/Sprint3/Audit"); repo has since moved to the TipTap branch. No other repo had new commits. Dirty-file counts otherwise unchanged: `InternalIntacctQueryApp` (46, `master`), `Midas_GP` (3), `LESCO_sync`/`MudMCP` (2 each), `CDH_FPA`/`Legal_Service`/`MIDAS_GP_MPAS`/`PEF_MPAS.Web` (1 each); `CDH_Project_Reporting`/`MHC_InventoryTransfer`/`OBD`/`TRANCY_CargoWise_Integration` clean.
+- **Cleanup**: no broken wikilinks found in files touched this run; all indexed folders current; Inbox has only its standing triage checklist, nothing new to move.
+- **Pre-existing uncommitted work** (from a prior session, included in this run's commit): [[04_Projects/Active/EL Audit and Permissions Warplan]] updated with Phase 3 Tasks 3.1-3.5 status (all done, uncommitted in the repo — see repo activity above).
+- **Needs attention**: `CDH_EL`'s Phase 3 audit/permissions work is real and verified (per the Warplan's Status Log) but only exists as a stash on a branch the repo isn't even checked out to anymore — recommend committing it before more TipTap-branch work piles on top and risks a messy stash pop. `InternalIntacctQueryApp` still dirty (46 files, `master`) across six-plus runs now — likely forgotten work.
+
 ## 2026-07-16 (24h lookback)
 
 - **Monday.com**: connector unavailable — `get_user_context` failed `net::ERR_NETWORK_IO_SUSPENDED` on two attempts. Skipped entirely, no items pulled.
