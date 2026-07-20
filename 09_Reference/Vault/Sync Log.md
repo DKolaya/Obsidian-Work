@@ -13,6 +13,18 @@ Morning-sync routine run summaries, newest first. Written automatically by the `
 
 <!-- Entries appended below by the sync routine. Do not edit entries by hand; add comments in your daily note instead. -->
 
+## 2026-07-20 08:xx (72h lookback, Monday)
+
+- **Monday.com**: connector unavailable — `get_user_context` failed `net::ERR_NETWORK_IO_SUSPENDED` on two attempts. Skipped entirely.
+- **Email**: connector unavailable — same network error on `outlook_email_search`. Skipped.
+- **Teams**: connector unavailable — same network error on `chat_message_search`. Skipped.
+- **Calendar**: connector unavailable — same outage. No meeting stubs created.
+- **GitHub**: no review requests, no actionable notifications. Drew's 4 open PRs checked for new comments/failing checks since 2026-07-17: [CDHTS/CDH_EL#9](https://github.com/CDHTS/CDH_EL/pull/9) (no new checks, Drew's own bugfix comment 2026-07-17), [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) (Workers Build still failing, already flagged), [CDHTS/TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2) (no CI, unchanged), [CDHTS/PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350) (no CI, unchanged).
+- **Repo activity** (`C:\Users\dkolaya\source\repos`, read-only): `CDH_EL` now on `Drew/Sprint3/Audit` (moved off `feature/June/30/RTE-TipTap-cleanup`) — Phase 3 audit/permissions work (9 dirty files) still uncommitted, unchanged since 2026-07-16 (logged in [[04_Projects/Active/EL Audit and Permissions Warplan]]). Old TipTap-cleanup stashes from the 2026-07-17 flag remain untouched in the stash list, not lost. One new commit across all refs: "editor spacing bugfix" (PR #9, TipTap branch). Dirty-file counts otherwise unchanged: `InternalIntacctQueryApp` (46, `master`), `Midas_GP` (3), `LESCO_sync`/`MudMCP` (2 each), `CDH_FPA`/`Legal_Service`/`MIDAS_GP_MPAS`/`PEF_MPAS.Web` (1 each); `CDH_Project_Reporting`/`MHC_InventoryTransfer`/`OBD`/`TRANCY_CargoWise_Integration` clean.
+- **Cleanup**: no broken wikilinks; all indexed folders current including new [[06_Resources/AI Platforms/Microsoft Copilot Company Profile]] and [[06_Resources/AI Platforms/OpenAI Company Profile]] (already linked from [[06_Resources/AI Platforms/AI Platforms Index]], frontmatter-compliant). Inbox empty of triageable items.
+- **Pre-existing uncommitted work** (from a prior session, included in this run's commit): Microsoft Copilot + OpenAI company profile research (new notes, index/AI Initiative updates).
+- **Needs attention**: all Microsoft 365 tools (Monday.com + Outlook + Teams) hit the same `net::ERR_NETWORK_IO_SUSPENDED` error across every tool this run — worth checking the M365/Monday MCP connection if this repeats. `CDH_EL` Phase 3 work has now been uncommitted for 4+ days on `Drew/Sprint3/Audit` — recommend committing before it risks getting lost or tangled with more branch work. `InternalIntacctQueryApp` still dirty (46 files, `master`) across many runs — likely forgotten work.
+
 ## 2026-07-17 08:15 (24h lookback)
 
 - **Monday.com**: no new items or status changes for Drew on EL Tasks / AI Weekly Tasks boards since 2026-07-16 — all already reflected in [[03_Todos/Work TODOs]]. Ownerless "Clean up MVC code if unused" item (created 07-14) still has no owner — not added.

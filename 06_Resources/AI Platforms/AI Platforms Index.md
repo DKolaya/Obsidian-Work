@@ -13,11 +13,11 @@ Master list for AI-company profiles, platform research, and comparisons feeding 
 ## Company profiles
 
 - [[06_Resources/AI Platforms/Anthropic Company Profile|Anthropic Company Profile]] — business, products, use cases, software quality, sentiment, economics, risks, and CDH pilot guidance; verified 2026-07-15
+- [[06_Resources/AI Platforms/OpenAI Company Profile|OpenAI Company Profile]] — business, products, use cases, software quality, sentiment, economics, risks, and CDH pilot guidance; verified 2026-07-16
+- [[06_Resources/AI Platforms/Microsoft Copilot Company Profile|Microsoft Copilot Company Profile]] — business, products, use cases, software quality, sentiment, economics, risks, and CDH pilot guidance; verified 2026-07-17
 
 ## Company research queue
 
-- OpenAI
-- Microsoft AI / Copilot
 - Google DeepMind / Gemini
 - Additional vendors as Initiative 1 expands
 

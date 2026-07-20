@@ -52,7 +52,7 @@ Personal tie-in: supports my goal to research + deliver 2-3 practical AI improve
 
 - [ ] W1: Platform research — Claude (Anthropic) *(In Progress on board)*
 - [ ] W2: Platform research — ChatGPT Enterprise/OpenAI *(In Progress on board)*
-- [ ] W3: Platform research — Microsoft 365 Copilot
+- [x] W3: Platform research — Microsoft 365 Copilot ✅ 2026-07-17
 - [ ] W4: Platform research — Google Gemini
 - [ ] W5: Platform research — Codex vs Claude Code — head start: [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|workflow audit report (2026-07)]] compares both tools over 150 real sessions
 - [ ] W6: Draft v1 platform comparison brief
@@ -71,12 +71,15 @@ The Anthropic vs. OpenAI enterprise comparison (W1/W2/W6/W12 work) lives in:
 
 Company-by-company research lives in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]]:
 - [[06_Resources/AI Platforms/Anthropic Company Profile|Anthropic Company Profile]] — products, uses, quality, adoption, business trends, sentiment, risks, and pilot guidance (verified 2026-07-15)
+- [[06_Resources/AI Platforms/OpenAI Company Profile|OpenAI Company Profile]] — products, uses, quality, adoption, business trends, sentiment, risks, and pilot guidance (verified 2026-07-16)
+- [[06_Resources/AI Platforms/Microsoft Copilot Company Profile|Microsoft Copilot Company Profile]] — products, uses, quality, adoption, business trends, sentiment, risks, and pilot guidance (verified 2026-07-17)
 
-Upcoming platform write-ups (Copilot, Gemini, Codex vs Claude Code) should get their own notes in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]] as those weeks come up, then roll into the same v1/v2 brief.
+Upcoming platform write-ups (Gemini, Codex vs Claude Code) should get their own notes in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]] as those weeks come up, then roll into the same v1/v2 brief.
 
 ## Status Log
 
 - 2026-07-10 — Monday sync: W1/W2 platform research still In Progress; W3-W13 Not Started. No new board updates since 2026-07-09.
+- 2026-07-17 — W3 done: Microsoft Copilot Company Profile written and linked. Deep-research workflow hit session limit mid-run (synthesis step failed, same as W2); finished manually from 16 verified claims plus targeted follow-up searches (Copilot Studio/Security Copilot pricing, Italy AGCM antitrust probe, GitHub Copilot benchmark standing). Key finding: Microsoft's own Work Trend Index data shows a real usage-to-value gap (88% usage vs. 39% attributed EBIT impact per third-party read) and 35.8% Copilot seat utilization — worth flagging to partners before assuming seat purchase equals adoption.
 
 ## Links
 

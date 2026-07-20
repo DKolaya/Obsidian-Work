@@ -52,7 +52,7 @@ EL Tasks board (owner: Drew):
 AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/AI Initiative]]:
 - [ ] W1: Platform research - Claude (Anthropic) — In Progress
 - [ ] W2: Platform research - ChatGPT Enterprise/OpenAI — In Progress
-- [ ] W3: Platform research - Microsoft 365 Copilot
+- [x] W3: Platform research - Microsoft 365 Copilot ✅ 2026-07-17
 - [ ] W4: Platform research - Google Gemini
 - [ ] W5: Platform research - Codex vs Claude Code
 - [ ] W6: Draft v1 platform comparison brief

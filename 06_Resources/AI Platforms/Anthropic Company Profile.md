@@ -379,6 +379,8 @@ Review monthly until Q1 partner checkpoint:
 ## Related
 
 - [[06_Resources/AI Platforms/AI Platforms Index]]
+- [[06_Resources/AI Platforms/OpenAI Company Profile]]
+- [[06_Resources/AI Platforms/Microsoft Copilot Company Profile]]
 - [[06_Resources/AI Platforms/Anthropic vs OpenAI Enterprise Comparison]]
 - [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|Internal Codex + Claude Code workflow audit]]
 - [[04_Projects/Active/AI Initiative]]
