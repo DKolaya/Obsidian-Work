@@ -14,6 +14,7 @@ tags:
 
 - Active editor wargames: [[04_Projects/Active/EL Editor Wargames 2026-07-13|EL Editor Wargames 2026-07-13]].
 - Engagement Letter work is active.
+- Reusable editor component (how it works, how to embed it on a new page): [[06_Resources/Architecture/EL TipTap Editor Component|EL TipTap Editor Component]].
 - Audit trail + permissions implementation plan: [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]] (2026-07-13 — Audit.NET entity log + policy-based auth bridging the existing enum permission model).
 - Deferred editor/template work includes production export, DOCX fidelity, review/comment workflow, version/diff UX, and package-specific document flow.
 - SharePoint export is tracked in [[03_Todos/Work TODOs]].

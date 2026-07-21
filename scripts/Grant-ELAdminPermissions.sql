@@ -22,9 +22,9 @@ DECLARE @FirstName nvarchar(100) = 'Drew';
 DECLARE @LastName nvarchar(100) = 'Kolaya';
 DECLARE @FullAccessJson nvarchar(max) = N'{"modules":[{"module":"Workspace","actions":["View","Create","Edit","Admin"]},{"module":"Templates","actions":["View","Create","Edit","Admin"]},{"module":"ServiceMaps","actions":["View","Create","Edit","Admin"]},{"module":"Rules","actions":["View","Create","Edit","Admin"]},{"module":"UserManagement","actions":["View","Create","Edit","Admin"]},{"module":"Permissions","actions":["View","Create","Edit","Admin"]}]}';
 
-IF EXISTS (SELECT 1 FROM dbo.UserRecord WHERE username = @Email)
+IF EXISTS (SELECT 1 FROM [CDH_EL_DK_S3].[dbo].[UserRecord] WHERE username = @Email)
 BEGIN
-    UPDATE dbo.UserRecord
+    UPDATE [CDH_EL_DK_S3].[dbo].[UserRecord]
     SET json_permissions = @FullAccessJson,
         is_inactive = 0,
         date_updated_utc = GETUTCDATE(),
@@ -35,10 +35,10 @@ BEGIN
 END
 ELSE
 BEGIN
-    INSERT INTO dbo.UserRecord (username, user_first, user_last, is_inactive, json_permissions, date_created_utc, date_updated_utc, created_by, updated_by)
+    INSERT INTO [CDH_EL_DK_S3].[dbo].[UserRecord] (username, user_first, user_last, is_inactive, json_permissions, date_created_utc, date_updated_utc, created_by, updated_by)
     VALUES (@Email, @FirstName, @LastName, 0, @FullAccessJson, GETUTCDATE(), GETUTCDATE(), 'manual-unblock-script', 'manual-unblock-script');
 
     PRINT 'Inserted new UserRecord row for ' + @Email;
 END
 
-SELECT id, username, is_inactive, json_permissions FROM dbo.UserRecord WHERE username = @Email;
+SELECT id, username, is_inactive, json_permissions FROM [CDH_EL_DK_S3].[dbo].[UserRecord] WHERE username = @Email;

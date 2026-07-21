@@ -17,6 +17,10 @@ tags:
 - [[09_Reference/Codex/Codex Index|Codex / Claude Code Index]]
 - [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|AI Agent Workflow Audit Report (2026-07)]]
 
+## Architecture
+
+- [[06_Resources/Architecture/EL TipTap Editor Component|EL TipTap Editor Component]]
+
 ## Runbooks
 
 - [[06_Resources/Runbooks/Runbook Index]]
