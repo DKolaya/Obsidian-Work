@@ -52,6 +52,16 @@ Flat tag whitelist (only these allowed unnamespaced): `dashboard`, `meta`, `work
 
 Infra files exempt from frontmatter rule: `AGENTS.md`, `CLAUDE.md`, `README.md`, `scripts/README.md`.
 
+## Project lifecycle (avoid staleness)
+
+`04_Projects/Active` drifts stale fastest — sub-plans linger after their work is done, and a project's own status log stops getting updated once nobody's actively looking at it. Check for this actively, don't wait to be asked:
+
+- **One live overview per initiative.** A project gets one main note in `Active` (status/links/backlog) plus, at most, sub-plan notes that are still genuinely in-progress. A sub-plan whose own task list (§T-style or checkbox) is 100% done is not "active" anymore, even if nobody moved it.
+- **Fold-and-archive, don't just delete.** When a sub-plan's tasks all close: (1) add one line to the parent project's `## Status Log` summarizing the outcome and linking the sub-plan's new location, (2) move the sub-plan to `90_Archive/Repo Planning/<repo-or-topic>/<date>/`, (3) add/update an index in that archive folder (index rule below still applies there), (4) remove the parent's link to the old Active path.
+- **Move to Done on real completion, not on a clean status log.** A quiet status log doesn't mean done — check repo/PR state before assuming. Conversely, don't block a move to `04_Projects/Done` on a trailing loose end (an open PR, an unmerged branch); move it and note the loose end in the status log instead.
+- **Don't reclassify silently.** Moving something to Done, archiving a sub-plan, or merging project notes changes the record of what's finished — confirm with Drew before doing it unless the evidence is unambiguous (e.g. the sub-plan's own tasks are explicitly all checked done). When evidence is mixed or you're relying on the note's prose rather than a checked task list, ask rather than guess.
+- **Watch for split/duplicate tracking.** If two index sections (or two notes) cover the same project, that's drift — merge into one; don't leave a project split across an "Active" list and an "Imported Active Projects" list, or similar.
+
 ## Index rule
 
 Any subfolder with 2+ notes requires `<Topic> Index.md` (type: index) listing every note in that folder with a one-line description. New note in an indexed folder → add it to the index in the same edit.
