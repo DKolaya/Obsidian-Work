@@ -34,6 +34,6 @@ tags:
 - [[05_Areas/Development/Performance Review Notes|Performance Review Notes]]
 - [[04_Projects/Active/EL|EL]]
 - [[04_Projects/Active/FPA|FPA]]
-- [[04_Projects/Active/Deferred Transactions|Deferred Transactions]]
+- [[04_Projects/Done/Deferred Transactions|Deferred Transactions]]
 - [[PEF API Member Payload|PEF API Member Payload]]
 - [[06_Resources/Intacct/Intacct Hints|Intacct Hints]]

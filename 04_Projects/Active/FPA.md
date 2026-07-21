@@ -28,6 +28,7 @@ tags:
 
 ## Status Log
 
+- 2026-07-21 — repo `CDH_FPA`: still on `Improvement/Jan26/Custom-Service-Paragraphs-DB-Edit`, still 1 uncommitted file, no new commits since 2026-07-13 — 8 days now. Confirmed still active with Drew; worth checking whether that file is stuck mid-edit or just needs a commit.
 - 2026-07-10 — repo `CDH_FPA`: no new commits, 1 uncommitted file on `Improvement/Jan26/Custom-Service-Paragraphs-DB-Edit`.
 - 2026-07-13 — repo `CDH_FPA`: no new commits, still 1 uncommitted file, same branch.
 

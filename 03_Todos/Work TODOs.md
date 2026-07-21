@@ -89,5 +89,5 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [[04_Projects/Active/EL]]
 - [[04_Projects/Done/MIDAS GP MPAS Service]]
 - [[04_Projects/Active/FPA]]
-- [[04_Projects/Active/Deferred Transactions]]
+- [[04_Projects/Done/Deferred Transactions]]
 - [[06_Resources/Intacct/Intacct Hints]]

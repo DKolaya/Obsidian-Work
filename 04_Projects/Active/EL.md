@@ -12,7 +12,6 @@ tags:
 
 ## Notes
 
-- Active editor wargames: [[04_Projects/Active/EL Editor Wargames 2026-07-13|EL Editor Wargames 2026-07-13]].
 - Engagement Letter work is active.
 - Reusable editor component (how it works, how to embed it on a new page): [[06_Resources/Architecture/EL TipTap Editor Component|EL TipTap Editor Component]].
 - Audit trail + permissions implementation plan: [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]] (2026-07-13 — Audit.NET entity log + policy-based auth bridging the existing enum permission model).
@@ -105,6 +104,7 @@ Source: [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|TS Internal Pr
 
 ## Status Log
 
+- 2026-07-21 — Archived [[90_Archive/Repo Planning/CDH_EL/2026-07-13/EL Editor Feedback Hardening Spec|EL Editor Feedback Hardening Spec]] and its companion [[90_Archive/Repo Planning/CDH_EL/2026-07-13/EL Editor Wargames 2026-07-13|EL Editor Wargames 2026-07-13]] — both fully done (all T1-T3 tasks closed 2026-07-13: spacing parity, forced page break, draft-only compare editing all shipped and wargamed). Folded out of Active to cut down EL note sprawl; Warplan stays the only other active EL sub-note since Phase 3 is still uncommitted.
 - 2026-07-09 — Sprint 2 EL app demo + UAT walkthrough given to admin/stakeholder group; feedback captured in [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|meeting note]] and folded into backlog above. UAT feedback due back 2026-07-17.
 - 2026-07-10 — repo `CDH_EL`: 1 commit ("TipTap and Gembox line spacing fix") on `Sprint2/deployment-prep`, 16 uncommitted files. UAT round 1 questionnaire sent by Shannon Thai. [[07_Meetings/2026-07-10 EL Repo-Branching Review|EL Repo/Branching Review]] meeting today.
 - 2026-07-13 — repo `CDH_EL`: now on `develop` branch (switched from cleanup branch), working tree clean, but a "Pre-develop fix stash" exists — verify no work was lost in the branch switch.

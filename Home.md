@@ -28,10 +28,8 @@ tags:
 - [[03_Todos/Work TODOs|Work TODOs]]
 - [[04_Projects/Project Index|Project Index]]
 - [[04_Projects/Active/AI Initiative|AI Initiative]]
-- [[04_Projects/Done/MIDAS GP MPAS Service|MIDAS GP MPAS Service]]
 - [[04_Projects/Active/EL|EL]]
 - [[04_Projects/Active/FPA|FPA]]
-- [[04_Projects/Active/Deferred Transactions|Deferred Transactions]]
 - [[07_Meetings/Meeting Index|Meetings]]
 
 ## Resources

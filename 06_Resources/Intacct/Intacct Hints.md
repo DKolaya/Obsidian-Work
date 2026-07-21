@@ -24,5 +24,5 @@ tags:
 ## Related Notes
 
 - [[04_Projects/Active/FPA]]
-- [[04_Projects/Active/Deferred Transactions]]
+- [[04_Projects/Done/Deferred Transactions]]
 - [[03_Todos/Work TODOs]]
