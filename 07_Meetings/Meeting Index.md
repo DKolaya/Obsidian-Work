@@ -15,3 +15,6 @@ tags:
 - [[07_Meetings/2026-07-10 Drew Check-in|Drew Check-in]] — 2026-07-10, 1:1 w/ Patrick.
 - [[07_Meetings/2026-07-13 TS Dev Team Planning Meeting|TS Dev Team Planning Meeting]] — 2026-07-13, team planning w/ Patrick, Nate, Shannon.
 - [[07_Meetings/2026-07-17 Drew Check-in|Drew Check-in]] — 2026-07-17, 1:1 w/ Patrick.
+- [[07_Meetings/2026-07-21 Trancy prep|Trancy prep]] — 2026-07-21, prep w/ Patrick, Nate.
+- [[07_Meetings/2026-07-21 Trancy CargoWise Integration Checkpoint|Trancy CargoWise Integration Checkpoint]] — 2026-07-21, Trancy integration status w/ Patrick, Nate.
+- [[07_Meetings/2026-07-21 Innovation and Technology Group Monthly Meeting|Innovation and Technology Group Monthly Meeting]] — 2026-07-21, recurring monthly innovation/tech review.

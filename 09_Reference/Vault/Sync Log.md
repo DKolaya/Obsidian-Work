@@ -13,6 +13,17 @@ Morning-sync routine run summaries, newest first. Written automatically by the `
 
 <!-- Entries appended below by the sync routine. Do not edit entries by hand; add comments in your daily note instead. -->
 
+## 2026-07-21 08:36
+
+- **Monday.com**: no new/completed items for Drew across EL Tasks or AI Weekly Tasks boards since 2026-07-20 (all in-progress items unchanged: W1/W2 platform research, EL audit trail/notes/permissions). Patrick posted an update re: in-person interviews Wednesday in Itasca.
+- **Email**: 1 actionable item added — Shannon Thai shared "CDH EL User Acceptance Testing - Sprint 2" for edit (2026-07-20). Skipped: ticket notification, Bonusly playlist newsletter, Trancy prep meeting invite (covered by calendar stub).
+- **Teams**: search hit a Graph rate limit partway through (21/47 chats scanned) — no @mentions/DMs surfaced in the portion covered; results incomplete.
+- **GitHub**: no new review requests, no actionable notifications. Drew's 4 open PRs unchanged — [CDH_EL#9](https://github.com/CDHTS/CDH_EL/pull/9) (no checks on branch), [CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) (Workers Build still failing), [TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350) — no new activity.
+- **Meeting stubs created**: [[07_Meetings/2026-07-21 Trancy prep|Trancy prep]], [[07_Meetings/2026-07-21 Trancy CargoWise Integration Checkpoint|Trancy CargoWise Integration Checkpoint]], [[07_Meetings/2026-07-21 Innovation and Technology Group Monthly Meeting|Innovation and Technology Group Monthly Meeting]] — all added to Meeting Index.
+- **Repo activity** (read-only): `CDH_EL` still on `Drew/Sprint3/Audit` — 9 dirty files, unchanged since 2026-07-16, now 5 days uncommitted. `InternalIntacctQueryApp` still dirty (46 files). `CDH_FPA`, `CDH_Project_Reporting`, `LESCO_sync`, `Legal_Service`, `MIDAS_GP_MPAS`, `Midas_GP`, `MudMCP`, `PEF_MPAS.Web` each carry small pre-existing diffs (1-3 files), no new commits since 2026-07-20. `MHC_InventoryTransfer`, `OBD`, `TRANCY_CargoWise_Integration` clean. Logged in [[04_Projects/Active/EL Audit and Permissions Warplan]].
+- **Cleanup**: fixed non-compliant frontmatter on [[06_Resources/Scripts/Grant EL Admin Permissions]] (`type: script-note` → `resource`; `project/cdh-el` → `project/el` per taxonomy). Inbox empty, indexes current, no broken links found in touched files.
+- **Needs attention**: CDH_EL Phase 3 work now 5 days uncommitted — commit before it rides alongside more branch activity. Teams scan incomplete due to rate limit, re-check tomorrow. Pre-existing uncommitted files in this vault (`Grant EL Admin Permissions.md`, `Grant-ELAdminPermissions.sql`, `KeepAwake.ps1`, modified `Script Index.md`) included in this commit.
+
 ## 2026-07-20 08:xx (72h lookback, Monday)
 
 - **Monday.com**: connector unavailable — `get_user_context` failed `net::ERR_NETWORK_IO_SUSPENDED` on two attempts. Skipped entirely.

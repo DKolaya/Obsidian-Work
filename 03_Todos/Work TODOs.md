@@ -68,6 +68,7 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 
 - [x] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT. ✅ 2026-07-13
 - [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
+- [ ] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access.
 
 ## GitHub
 
