@@ -32,6 +32,7 @@ tags:
 - [ ] Review logging needs.
 - [ ] Review Hangfire use cases.
 - [ ] Work EL editor backlog in [[04_Projects/Active/EL]].
+- [ ] Digest core toolkit + CSAC reference, start ORDA repo — [[04_Projects/Active/ORDA Positive Pay]] (after vacation).
 - [ ] Review support ticket.
 - [ ] Containerize HAVIT MCP.
 - [ ] Complete Trancy check-in.
@@ -69,11 +70,13 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [x] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT. ✅ 2026-07-13
 - [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
 - [ ] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access.
+- [ ] Reply re: Dept 100 pass-through invoice handling (Tim Wright, twright@trancyamerica.com, 2026-07-21) — question on Integration Testing and Transactions thread, unread.
 
 ## GitHub
 
 - No open PRs waiting on Drew's review.
 - Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing.
+- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), currently CONFLICTING, needs rebase.
 
 ## Fable
 
@@ -91,3 +94,4 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [[04_Projects/Active/FPA]]
 - [[04_Projects/Done/Deferred Transactions]]
 - [[06_Resources/Intacct/Intacct Hints]]
+- [[04_Projects/Active/ORDA Positive Pay]]

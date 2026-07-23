@@ -18,3 +18,8 @@ tags:
 - [[07_Meetings/2026-07-21 Trancy prep|Trancy prep]] — 2026-07-21, prep w/ Patrick, Nate.
 - [[07_Meetings/2026-07-21 Trancy CargoWise Integration Checkpoint|Trancy CargoWise Integration Checkpoint]] — 2026-07-21, Trancy integration status w/ Patrick, Nate.
 - [[07_Meetings/2026-07-21 Innovation and Technology Group Monthly Meeting|Innovation and Technology Group Monthly Meeting]] — 2026-07-21, recurring monthly innovation/tech review.
+- [[07_Meetings/2026-07-22 Positive Pay review|Positive Pay review]] — 2026-07-22, Positive Pay review w/ Nate.
+- [[07_Meetings/2026-07-23 Drew Check-in|Drew Check-in]] — 2026-07-23, 1:1 w/ Patrick.
+- [[07_Meetings/2026-07-23 NCSS Rep Payee Client Reporting Review|NCSS Rep Payee Client Reporting Review]] — 2026-07-23, tentative, w/ Shannon, Patrick, NCSS contacts.
+- [[07_Meetings/2026-07-23 TS Dev Weekly Retrospective|TS Dev Weekly Retrospective]] — 2026-07-23, recurring dev retro w/ Patrick, Shannon, Nate.
+- [[07_Meetings/2026-07-23 TS Internal Projects Touch Point|TS Internal Projects Touch Point]] — 2026-07-23, internal projects status w/ Patrick, Shannon, Nate, CDH team.

@@ -12,4 +12,4 @@ Meta notes about the vault's own structure/organization (not project or area con
 
 - [[Vault Organization Audit Prompt]] — run 2026-07-10; findings applied vault-wide (placement rules, frontmatter schema, tag taxonomy, file moves)
 - [AGENTS.md](../../AGENTS.md) — vault root; the canonical, tool-agnostic placement/frontmatter/tag ruleset produced by the audit (`CLAUDE.md` is just a pointer to it)
-- [[Sync Log]] — run summaries from the weekday 8:15 AM `morning-vault-sync` scheduled task
+- [[09_Reference/Vault/Sync Log/Sync Log Index|Sync Log]] — run summaries from the weekday 8:15 AM `morning-vault-sync` scheduled task, organized by month folder then weekly file

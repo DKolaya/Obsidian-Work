@@ -72,7 +72,9 @@ Any subfolder with 2+ notes requires `<Topic> Index.md` (type: index) listing ev
 
 ## Intentionally empty folders
 
-`02_Daily`, `04_Projects/Backlog`, `04_Projects/Done`, `06_Resources/Architecture`, `06_Resources/Snippets`, `scripts/` — structure placeholders, do not delete or fill with misc.
+`04_Projects/Backlog`, `04_Projects/Done`, `06_Resources/Architecture`, `06_Resources/Snippets`, `scripts/` — structure placeholders, do not delete or fill with misc.
+
+`02_Daily` holds exactly one file at a time — today's auto-generated briefing from `morning-vault-sync`, replaced each weekday morning (not a growing archive; the permanent record lives in `09_Reference/Vault/Sync Log/`). Never manually add other notes here.
 
 ## Non-note folders
 
