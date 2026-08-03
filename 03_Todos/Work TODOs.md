@@ -22,19 +22,17 @@ tags:
 
 ## Backlog
 
-- [ ] 
+- [ ] Continue Blazor course.
+- [ ] Continue Intacct course.
 
 ## Active
 
 - [ ] Look into the Intacct REST API.
-- [ ] Continue Blazor course.
-- [ ] Continue Intacct course.
-- [ ] Review logging needs.
-- [ ] Review Hangfire use cases.
+- [ ] Review logging needs on EL APP.
+- [ ] Set up Hangfire Jobs for EL.
 - [ ] Work EL editor backlog in [[04_Projects/Active/EL]].
 - [ ] Digest core toolkit + CSAC reference, start ORDA repo — [[04_Projects/Active/ORDA Positive Pay]] (after vacation).
-- [ ] Review support ticket.
-- [ ] Containerize HAVIT MCP.
+- [ ] Review new support tickets.
 - [ ] Complete Trancy check-in.
 - [ ] Review timesheet entry.
 
@@ -54,9 +52,9 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [ ] W1: Platform research - Claude (Anthropic) — In Progress
 - [ ] W2: Platform research - ChatGPT Enterprise/OpenAI — In Progress
 - [x] W3: Platform research - Microsoft 365 Copilot ✅ 2026-07-17
-- [ ] W4: Platform research - Google Gemini
-- [ ] W5: Platform research - Codex vs Claude Code
-- [ ] W6: Draft v1 platform comparison brief
+- [ ] W4: Platform research - Google Gemini (overdue, was due 2026-07-24)
+- [ ] W5: Platform research - Codex vs Claude Code (overdue, was due 2026-07-31)
+- [ ] W6: Draft v1 platform comparison brief (due 2026-08-07)
 - [ ] W7: Research accounting AI add-ons - Sage Intacct, QuickBooks
 - [ ] W8: Research accounting AI add-ons - CCH Axcess, CoCounsel, Karbon
 - [ ] W9: Fold accounting-tool findings into brief
@@ -70,18 +68,17 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [x] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT. ✅ 2026-07-13
 - [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
 - [ ] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access.
-- [ ] Reply re: Dept 100 pass-through invoice handling (Tim Wright, twright@trancyamerica.com, 2026-07-21) — question on Integration Testing and Transactions thread, unread.
+- [x] Reply re: Dept 100 pass-through invoice handling (Tim Wright, twright@trancyamerica.com, 2026-07-21) — question on Integration Testing and Transactions thread, unread. ✅ 2026-07-23
+
+## From Teams
+
+- Scan incomplete this run (Graph rate limit, 2/48 chats checked) — no @mentions/DMs found in the portion scanned.
 
 ## GitHub
 
 - No open PRs waiting on Drew's review.
-- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing.
-- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), currently CONFLICTING, needs rebase.
-
-## Fable
-
-- [x] Audit Fable repo organization. #fable #important ✅ 2026-07-10
-- [ ] Use Fable for overall EL review, including current EL structure and repo organization. #fable #important
+- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, now also CONFLICTING.
+- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), still CONFLICTING, needs rebase.
 
 ## Done This Week
 

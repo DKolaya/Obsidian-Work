@@ -39,6 +39,8 @@ Source repo docs checked 2026-07-09:
 - [ ] Retest latest DOCX import preflight build with the failing DOCX.
 - [ ] If DOCX import still kills the process, capture server-side logs around upload endpoint, preflight, and `DocumentModel.Load`.
 - [ ] Add `pnpm test:tiptap` coverage for keyboard shortcuts, floating-menu positioning, and list-toggle behavior.
+- [ ] Check edit without save and then try to preview.
+- [ ] switching between versions to fast causes the loading to lock up either disable buttons while loading or maybe async cancellation token being mishandled when async loading is happening
 
 #### Export And Artifacts
 
@@ -104,6 +106,7 @@ Source: [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|TS Internal Pr
 
 ## Status Log
 
+- 2026-08-03 — Monday EL Tasks: "Implement audit trail" moved In Progress → Waiting for review, matching PR [CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) being opened; "Implement notes" and "Implement application permissions" unchanged, still In Progress. Repo `CDH_EL`: no new commits since 2026-07-22, tree clean. PR #10 still CONFLICTING, needs rebase.
 - 2026-07-21 — Archived [[90_Archive/Repo Planning/CDH_EL/2026-07-13/EL Editor Feedback Hardening Spec|EL Editor Feedback Hardening Spec]] and its companion [[90_Archive/Repo Planning/CDH_EL/2026-07-13/EL Editor Wargames 2026-07-13|EL Editor Wargames 2026-07-13]] — both fully done (all T1-T3 tasks closed 2026-07-13: spacing parity, forced page break, draft-only compare editing all shipped and wargamed). Folded out of Active to cut down EL note sprawl; Warplan stays the only other active EL sub-note since Phase 3 is still uncommitted.
 - 2026-07-09 — Sprint 2 EL app demo + UAT walkthrough given to admin/stakeholder group; feedback captured in [[07_Meetings/2026-07-09 TS Internal Projects Touch Point|meeting note]] and folded into backlog above. UAT feedback due back 2026-07-17.
 - 2026-07-10 — repo `CDH_EL`: 1 commit ("TipTap and Gembox line spacing fix") on `Sprint2/deployment-prep`, 16 uncommitted files. UAT round 1 questionnaire sent by Shannon Thai. [[07_Meetings/2026-07-10 EL Repo-Branching Review|EL Repo/Branching Review]] meeting today.

@@ -78,6 +78,7 @@ Upcoming platform write-ups (Gemini, Codex vs Claude Code) should get their own 
 
 ## Status Log
 
+- 2026-08-03 — Monday sync (using 2026-07-23 as lookback cutoff — last sync gap): W1/W2 still In Progress, no board movement in 3+ weeks. **W4 (Gemini) and W5 (Codex vs Claude Code) are both overdue** (due 07-24 and 07-31, still Not Started) — a prior-session deep-research attempt at the Gemini profile did not produce a saved note in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]], so W4 needs a proper re-run. W6 (draft v1 comparison brief) is now due this week (08-03–08-07) and depends on W4/W5 landing first.
 - 2026-07-10 — Monday sync: W1/W2 platform research still In Progress; W3-W13 Not Started. No new board updates since 2026-07-09.
 - 2026-07-17 — W3 done: Microsoft Copilot Company Profile written and linked. Deep-research workflow hit session limit mid-run (synthesis step failed, same as W2); finished manually from 16 verified claims plus targeted follow-up searches (Copilot Studio/Security Copilot pricing, Italy AGCM antitrust probe, GitHub Copilot benchmark standing). Key finding: Microsoft's own Work Trend Index data shows a real usage-to-value gap (88% usage vs. 39% attributed EBIT impact per third-party read) and 35.8% Copilot seat utilization — worth flagging to partners before assuming seat purchase equals adoption.
 

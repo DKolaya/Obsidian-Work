@@ -30,4 +30,4 @@ tags:
 
 ## Action Items
 
-- [ ] 
+- [ ] rename Menard Brandi to Alison (different last name)?

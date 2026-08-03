@@ -34,6 +34,7 @@ tags:
 
 ## Status Log
 
+- 2026-08-03 — No update found: no ORDA repo under `source/repos`, no Monday board surfaced, no related email/Teams activity since 07-22. Unclear whether Nathan set up the board/repo shell during Drew's vacation — needs a direct check-in, not assumed stalled.
 - 2026-07-22 — Kickoff/handoff meeting with Nathan Sawyer. Drew out on vacation next week; real start after return. Nathan to: set up Monday board + repo shell, distill bank file documentation, possibly get a head start aligning Positive Pay pages with core (will share for review if so).
 
 ## Links
