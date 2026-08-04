@@ -23,3 +23,4 @@ tags:
 - [[07_Meetings/2026-07-23 NCSS Rep Payee Client Reporting Review|NCSS Rep Payee Client Reporting Review]] — 2026-07-23, tentative, w/ Shannon, Patrick, NCSS contacts.
 - [[07_Meetings/2026-07-23 TS Dev Weekly Retrospective|TS Dev Weekly Retrospective]] — 2026-07-23, recurring dev retro w/ Patrick, Shannon, Nate.
 - [[07_Meetings/2026-07-23 TS Internal Projects Touch Point|TS Internal Projects Touch Point]] — 2026-07-23, internal projects status w/ Patrick, Shannon, Nate, CDH team.
+- [[07_Meetings/2026-08-04 TS Dev Team Planning Meeting|TS Dev Team Planning Meeting]] — 2026-08-04, team planning w/ Patrick (no-show), Nate, Shannon.

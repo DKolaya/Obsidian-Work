@@ -69,16 +69,17 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
 - [ ] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access.
 - [x] Reply re: Dept 100 pass-through invoice handling (Tim Wright, twright@trancyamerica.com, 2026-07-21) — question on Integration Testing and Transactions thread, unread. ✅ 2026-07-23
+- [ ] Sage Intacct company "cc-institute-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-08-04) — reactivate or confirm deactivation.
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 2/48 chats checked) — no @mentions/DMs found in the portion scanned.
+- Scan incomplete this run (Graph rate limit, 33/48 chats checked) — no @mentions/DMs found in the portion scanned.
 
 ## GitHub
 
 - No open PRs waiting on Drew's review.
-- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, now also CONFLICTING.
-- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), still CONFLICTING, needs rebase.
+- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, still CONFLICTING.
+- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), got a new commit 2026-08-04, still CONFLICTING, needs rebase.
 
 ## Done This Week
 

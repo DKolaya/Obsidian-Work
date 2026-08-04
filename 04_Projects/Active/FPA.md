@@ -28,6 +28,7 @@ tags:
 
 ## Status Log
 
+- 2026-08-04 — repo `CDH_FPA`: rechecked the "1 uncommitted file" flagged in prior entries — actual untracked item is `data/` (external clone artifact, same pattern as other repos' `data/` folders), not a modified tracked file. No real uncommitted work found. Still on `Improvement/Jan26/Custom-Service-Paragraphs-DB-Edit`, last real commit unchanged at 2026-04-13.
 - 2026-08-03 — repo `CDH_FPA`: still on `Improvement/Jan26/Custom-Service-Paragraphs-DB-Edit`, still 1 uncommitted file, no new commits since 2026-07-13 — now 3+ weeks stagnant. Same open question as before: worth checking whether that file is stuck mid-edit or just needs a commit.
 - 2026-07-21 — repo `CDH_FPA`: still on `Improvement/Jan26/Custom-Service-Paragraphs-DB-Edit`, still 1 uncommitted file, no new commits since 2026-07-13 — 8 days now. Confirmed still active with Drew; worth checking whether that file is stuck mid-edit or just needs a commit.
 - 2026-07-10 — repo `CDH_FPA`: no new commits, 1 uncommitted file on `Improvement/Jan26/Custom-Service-Paragraphs-DB-Edit`.
