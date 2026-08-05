@@ -73,7 +73,7 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 33/48 chats checked) — no @mentions/DMs found in the portion scanned.
+- Scan incomplete this run (Graph rate limit, 0/48 chats checked — worse than yesterday's 33/48) — no @mentions/DMs surfaced.
 
 ## GitHub
 
