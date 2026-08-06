@@ -47,6 +47,9 @@ EL Tasks board (owner: Drew):
 - [x] Create Solution and Repository
 - [x] Create engagement letter overview/search screen
 - [x] Setting up AI tools for developement
+- [ ] Implement audit trail — Waiting for review
+- [ ] Implement application permissions including approval workflows — In Progress
+- [ ] Implement notes (with Nathan Sawyer) — In Progress
 
 AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/AI Initiative]]:
 - [ ] W1: Platform research - Claude (Anthropic) — In Progress
@@ -70,16 +73,17 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [ ] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access.
 - [x] Reply re: Dept 100 pass-through invoice handling (Tim Wright, twright@trancyamerica.com, 2026-07-21) — question on Integration Testing and Transactions thread, unread. ✅ 2026-07-23
 - [ ] Sage Intacct company "cc-institute-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-08-04) — reactivate or confirm deactivation.
+- [ ] Submit July expense reports by EOD today, approved by Monday morning (Sharon Wells, swells@cdhcpa.com, 2026-08-06) — broadcast to staff, not addressed to Drew individually, but deadline applies.
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 0/48 chats checked — worse than yesterday's 33/48) — no @mentions/DMs surfaced.
+- Scan incomplete this run (Graph rate limit, 21/48 chats checked before 429 — better than yesterday's 0/48) — no @mentions/DMs surfaced in the portion scanned.
 
 ## GitHub
 
 - No open PRs waiting on Drew's review.
 - Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, still CONFLICTING.
-- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), got a new commit 2026-08-04, still CONFLICTING, needs rebase.
+- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), new comment from Drew 2026-08-05 describing shipped work (user creation, combined user edit, dynamic permission catalog, audit log permission), still CONFLICTING, needs rebase.
 
 ## Done This Week
 
