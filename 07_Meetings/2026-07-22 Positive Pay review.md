@@ -27,6 +27,7 @@ tags:
 - Framed as reusing an existing system, not building from scratch — "last 10-20%" of customization for ORDA. No fixed timeline; Patrick confirmed there's plenty of time. Nathan's earlier "one week" comment was a casual ballpark, not a real deadline.
 - Drew is out on vacation starting this week (~1 week); recorded the meeting to review on return rather than try to retain everything now.
 - Full detail captured in project note: [[04_Projects/Active/ORDA Positive Pay]].
+- Raw transcript archived: [[90_Archive/2026-07-22 ORDA Positive Pay review transcript]].
 
 ## Decisions
 

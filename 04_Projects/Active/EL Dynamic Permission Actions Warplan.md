@@ -170,5 +170,5 @@ Tasks 1-6 land as **one commit** on a new branch off `Drew/Sprint4/PermissionCat
 ## Links
 
 - [[04_Projects/Active/EL|EL]]
-- [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]]
+- [[90_Archive/Repo Planning/CDH_EL/2026-08-06/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]] (archived)
 - [[04_Projects/Project Index|Project Index]]
