@@ -26,3 +26,4 @@ tags:
 - [[07_Meetings/2026-08-04 TS Dev Team Planning Meeting|TS Dev Team Planning Meeting]] — 2026-08-04, team planning w/ Patrick (no-show), Nate, Shannon.
 - [[07_Meetings/2026-08-05 Innovation and Technology Group Monthly Meeting|Innovation and Technology Group Monthly Meeting]] — 2026-08-05, recurring monthly innovation/tech review.
 - [[07_Meetings/2026-08-06 TS Dev Weekly Retrospective|TS Dev Weekly Retrospective]] — 2026-08-06, recurring dev retro w/ Patrick, Shannon, Nate.
+- [[07_Meetings/2026-08-10 TS Dev Team Planning Meeting|TS Dev Team Planning Meeting]] — 2026-08-10, team planning w/ Patrick, Nate, Shannon.

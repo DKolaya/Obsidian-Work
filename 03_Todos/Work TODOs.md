@@ -57,7 +57,7 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [x] W3: Platform research - Microsoft 365 Copilot ✅ 2026-07-17
 - [ ] W4: Platform research - Google Gemini (overdue, was due 2026-07-24)
 - [ ] W5: Platform research - Codex vs Claude Code (overdue, was due 2026-07-31)
-- [ ] W6: Draft v1 platform comparison brief (due 2026-08-07)
+- [ ] W6: Draft v1 platform comparison brief (overdue, was due 2026-08-07)
 - [ ] W7: Research accounting AI add-ons - Sage Intacct, QuickBooks
 - [ ] W8: Research accounting AI add-ons - CCH Axcess, CoCounsel, Karbon
 - [ ] W9: Fold accounting-tool findings into brief
@@ -77,13 +77,13 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 21/48 chats checked before 429 — better than yesterday's 0/48) — no @mentions/DMs surfaced in the portion scanned.
+- Scan incomplete this run (Graph rate limit, 0/48 chats checked before 429 — second run in a row at 0/48).
 
 ## GitHub
 
 - No open PRs waiting on Drew's review.
 - Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, still CONFLICTING.
-- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), new comment from Drew 2026-08-05 describing shipped work (user creation, combined user edit, dynamic permission catalog, audit log permission), still CONFLICTING, needs rebase.
+- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), no new activity since the 2026-08-06 comment, still CONFLICTING, needs rebase.
 
 ## Done This Week
 

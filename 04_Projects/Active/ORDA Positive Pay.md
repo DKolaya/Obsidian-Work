@@ -37,8 +37,8 @@ tags:
 - [ ] Verify whether the check template was ever updated to "JP Morgan Business" layout for payee-line spacing (Chelsea Medeiros flagged this Feb 2026, unclear if done).
 - [x] Design + build a KeyBank-compliant fixed-width ASCII file writer (PNV format, record length 220) for `PositivePayExportService.Format(...)`. ✅ 2026-08-06 — see status log; unit-tested in `ORDA_Intacct_Toolkit.Tests`.
 - [ ] Review any Positive Pay page changes Nathan makes to align with core before building on them.
-- [ ] Get a real Auth0 tenant app (Domain/ClientId/ClientSecret) and a reachable SQL Server instance so the app can actually be run and the login flow verified.
-- [ ] Get ORDA logo/brand assets.
+- [x] Get a real Auth0 tenant app (Domain/ClientId/ClientSecret) and a reachable SQL Server instance so the app can actually be run and the login flow verified. ✅ 2026-08-07
+- [x] Get ORDA logo/brand assets. ✅ 2026-08-07
 
 ## Monday Board Tasks
 
