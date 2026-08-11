@@ -55,16 +55,29 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [ ] W1: Platform research - Claude (Anthropic) — In Progress
 - [ ] W2: Platform research - ChatGPT Enterprise/OpenAI — In Progress
 - [x] W3: Platform research - Microsoft 365 Copilot ✅ 2026-07-17
-- [ ] W4: Platform research - Google Gemini (overdue, was due 2026-07-24)
-- [ ] W5: Platform research - Codex vs Claude Code (overdue, was due 2026-07-31)
-- [ ] W6: Draft v1 platform comparison brief (overdue, was due 2026-08-07)
-- [ ] W7: Research accounting AI add-ons - Sage Intacct, QuickBooks
+- [ ] W4: Platform research - Google Gemini — In Progress (moved off "overdue" 2026-08-10)
+- [ ] W5: Platform research - Codex vs Claude Code — In Progress (moved off "overdue" 2026-08-10)
+- [ ] W6: Draft v1 platform comparison brief (overdue, was due 2026-08-07, still Not Started)
+- [ ] W7: Research accounting AI add-ons - Sage Intacct, QuickBooks (due 2026-08-14)
 - [ ] W8: Research accounting AI add-ons - CCH Axcess, CoCounsel, Karbon
 - [ ] W9: Fold accounting-tool findings into brief
 - [ ] W10: Support playbook - gather usage examples
 - [ ] W11: Support playbook - draft sections
 - [ ] W12: Finalize comparison brief v2
 - [ ] W13: Present brief at Q1 checkpoint
+
+Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Active/ORDA Positive Pay]]:
+- [x] Fork Intacct_Toolkit_Core repo
+- [x] Customize app logo, name and settings
+- [x] Verify core app framework runs with login
+- [x] Confirm file format from ORDA
+- [x] Test data sync for required Positive Pay fields — board caught up to Done 2026-08-10 (was blocked/stale on the board, already tracked done in the project note)
+- [ ] Setup Auth0 app and update Action — In Progress
+- [ ] Add any table customizations — In Progress
+- [ ] Add custom data sync for required Positive Pay fields — In Progress
+- [ ] Add any export customizations — In Progress
+- [ ] Test export feature — status blank on board (already done per project note, 2026-08-06)
+- [ ] Release Final Export Feature — Not Started, unassigned
 
 ## From Email
 
@@ -77,13 +90,13 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 0/48 chats checked before 429 — second run in a row at 0/48).
+- Scan incomplete this run (Graph rate limit, 0/47 chats checked before 429 — third run in a row hitting the same limit).
 
 ## GitHub
 
 - No open PRs waiting on Drew's review.
 - Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, still CONFLICTING.
-- Flagged: [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" (Drew's), no new activity since the 2026-08-06 comment, still CONFLICTING, needs rebase.
+- [x] [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" — MERGED 2026-08-10 (was CONFLICTING/needs-rebase as of the last several runs).
 
 ## Done This Week
 
