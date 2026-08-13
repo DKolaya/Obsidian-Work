@@ -10,7 +10,7 @@ tags:
 
 # EL Dynamic Permission Actions Warplan
 
-**Status (2026-08-04):** Planned, not started. Supersedes the docs-only design note committed as `0bb2d74` on `Drew/Sprint4/PermissionCatalogDesignNote` (`docs/reference/permission-catalog-dynamic-actions.md`), which this plan corrects on three points. Follow-on to [[04_Projects/Active/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]].
+**Status (2026-08-04):** Planned, not started. Supersedes the docs-only design note committed as `0bb2d74` on `Drew/Sprint4/PermissionCatalogDesignNote` (`docs/reference/permission-catalog-dynamic-actions.md`), which this plan corrects on three points. Follow-on to [[90_Archive/Repo Planning/CDH_EL/2026-08-06/EL Audit and Permissions Warplan|EL Audit and Permissions Warplan]].
 
 > **For agentic workers:** Execute task-by-task. Steps use checkbox syntax for tracking. Tasks 1-6 must land as **one commit** — see § Commit Atomicity. When implementation starts, copy this into the repo at `docs/reference/plans/` per repo doc conventions (`.original.md` + compressed `.md` pair) so it travels with the branch.
 

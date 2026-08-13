@@ -29,12 +29,21 @@ tags:
 
 - [ ] Look into the Intacct REST API.
 - [ ] Review logging needs on EL APP.
-- [ ] Set up Hangfire Jobs for EL.
-- [ ] Work EL editor backlog in [[04_Projects/Active/EL]].
+- [ ] Set up Hangfire Jobs for EL. — covered by [[04_Projects/Active/EL/EL SharePoint Export Job Warplan|SharePoint Export Job Warplan]] (P2), which adds Hangfire + SQL storage + a gated dashboard.
+- [ ] EL SharePoint export, four plans (P0-P3), all `Drew/Sprint4/*` off `develop` — index and ordering in [[04_Projects/Active/EL/EL Index|EL Index]]:
+    - [ ] P0 [[04_Projects/Active/EL/EL Document Approval Workflow Warplan|Document Approval Workflow]] — prerequisite; nothing transitions `ELDocument.enumDocumentState` today.
+    - [ ] P1 [[04_Projects/Active/EL/EL SharePoint Client Warplan|SharePoint Client]] — Graph client, mapper, `ELPackageSpListItem` + migration, config. No dependencies.
+    - [ ] P2 [[04_Projects/Active/EL/EL SharePoint Export Job Warplan|SharePoint Export Job]] — export service + Hangfire job. Needs P1.
+    - [ ] P3 [[04_Projects/Active/EL/EL SharePoint Export UI Warplan|SharePoint Export UI]] — `Sent to SharePoint` state + gated Send button. Needs P0 + P2.
+- [ ] Provision the EL SharePoint list + document library and capture their **internal** column names — blocks P1's field mapping and all of P2's enabled-path testing.
+- [ ] Confirm the Graph app registration for EL (`Sites.Selected` + site grant, or `Sites.ReadWrite.All`, admin-consented) and place the client secret in `appsettings.Development.local.json`, not the git-tracked `appsettings.Development.json`.
+- [ ] Raise rotation of CDH_FPA's Graph client secret — it is committed in cleartext in that repo's `appsettings.json`.
+- [ ] Work EL editor backlog in [[EL]].
 - [ ] Digest core toolkit + CSAC reference, start ORDA repo — [[04_Projects/Active/ORDA Positive Pay]] (after vacation).
 - [ ] Review new support tickets.
 - [ ] Complete Trancy check-in.
 - [ ] Review timesheet entry.
+- [ ] Server maintenance assigned this month — setup begins 2026-08-13.
 
 ## Monday.com
 
@@ -72,11 +81,11 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 - [x] Verify core app framework runs with login
 - [x] Confirm file format from ORDA
 - [x] Test data sync for required Positive Pay fields — board caught up to Done 2026-08-10 (was blocked/stale on the board, already tracked done in the project note)
-- [ ] Setup Auth0 app and update Action — In Progress
-- [ ] Add any table customizations — In Progress
-- [ ] Add custom data sync for required Positive Pay fields — In Progress
-- [ ] Add any export customizations — In Progress
-- [ ] Test export feature — status blank on board (already done per project note, 2026-08-06)
+- [ ] Setup Auth0 app and update Action — In Progress (only item on the board still not Done)
+- [x] Add any table customizations — board flipped Done 2026-08-12
+- [x] Add custom data sync for required Positive Pay fields — board flipped Done 2026-08-12
+- [x] Add any export customizations — board flipped Done 2026-08-12
+- [x] Test export feature — board flipped Done 2026-08-12
 - [ ] Release Final Export Feature — Not Started, unassigned
 
 ## From Email
@@ -90,13 +99,13 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 0/47 chats checked before 429 — third run in a row hitting the same limit).
+- Scan incomplete this run (Graph rate limit, 0/47 chats checked before 429 — fourth run in a row hitting the same limit).
 
 ## GitHub
 
-- No open PRs waiting on Drew's review.
-- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check failing, still CONFLICTING.
-- [x] [CDHTS/CDH_EL#10](https://github.com/CDHTS/CDH_EL/pull/10) — "Audit and permission system" — MERGED 2026-08-10 (was CONFLICTING/needs-rebase as of the last several runs).
+- No open PRs waiting on Drew's review. No actionable notifications.
+- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check still failing (checked 2026-08-13).
+- [TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350) — open, no checks configured, unchanged.
 
 ## Done This Week
 
@@ -104,7 +113,7 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 ## Project Links
 
-- [[04_Projects/Active/EL]]
+- [[EL]]
 - [[04_Projects/Done/MIDAS GP MPAS Service]]
 - [[04_Projects/Active/FPA]]
 - [[04_Projects/Done/Deferred Transactions]]

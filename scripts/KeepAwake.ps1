@@ -3,14 +3,14 @@ param(
     [int]$IntervalSeconds = 59
 )
 
-# Sends Shift+F15 to foreground app until stopped with Ctrl+C.
+# Sends Shift+F16 to foreground app until stopped with Ctrl+C.
 $shell = New-Object -ComObject WScript.Shell
 
-Write-Host "Sending Shift+F15 every $IntervalSeconds seconds. Press Ctrl+C to stop."
+Write-Host "Sending Shift+F16 every $IntervalSeconds seconds. Press Ctrl+C to stop."
 
 try {
     while ($true) {
-        $shell.SendKeys('+{F15}')
+        $shell.SendKeys('+{F16}')
         Start-Sleep -Seconds $IntervalSeconds
     }
 }

@@ -78,5 +78,5 @@ Time: ~20:01–20:46 UTC. Organizer: Esther Carreno. Source: [[90_Archive/OneNot
 
 ## Links
 
-- [[04_Projects/Active/EL]]
+- [[EL]]
 - [[03_Todos/Work TODOs]]
