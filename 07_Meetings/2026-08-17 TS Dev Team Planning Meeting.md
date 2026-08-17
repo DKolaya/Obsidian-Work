@@ -7,7 +7,7 @@ tags:
 ---
 # Meeting - 2026-08-17
 
-14:00–15:00 UTC, Microsoft Teams. Organizer: Patrick Della Rocca.
+10:00–11:00 AM EDT, Microsoft Teams. Organizer: Patrick Della Rocca.
 
 ## Attendees
 
