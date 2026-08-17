@@ -29,3 +29,4 @@ tags:
 - [[07_Meetings/2026-08-10 TS Dev Team Planning Meeting|TS Dev Team Planning Meeting]] — 2026-08-10, team planning w/ Patrick, Nate, Shannon.
 - [[07_Meetings/2026-08-11 TS Internal Projects Touch Point|TS Internal Projects Touch Point]] — 2026-08-11, tentative, FPA survey results + enhancement/bug review w/ Patrick, Shannon, Nate, CDH team.
 - [[07_Meetings/2026-08-13 TS Dev Weekly Retrospective|TS Dev Weekly Retrospective]] — 2026-08-13, recurring dev retro w/ Patrick, Shannon, Nate.
+- [[07_Meetings/2026-08-17 TS Dev Team Planning Meeting|TS Dev Team Planning Meeting]] — 2026-08-17, team planning w/ Patrick, Nate, Shannon.

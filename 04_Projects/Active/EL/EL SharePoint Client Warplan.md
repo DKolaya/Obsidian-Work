@@ -10,7 +10,9 @@ tags:
 
 # EL SharePoint Client Warplan
 
-**Status (2026-08-12):** Planned, not started. **P1 of 4** in the SharePoint export plan set — see [[04_Projects/Active/EL/EL Index|EL Index]]. No dependencies; can start immediately and in parallel with [[04_Projects/Active/EL/EL Document Approval Workflow Warplan|P0]]. Blocks [[04_Projects/Active/EL/EL SharePoint Export Job Warplan|P2]].
+**Status (2026-08-13):** All 5 tasks done. Migration applied to local `cdhel-sql`. **P1 of 4** in the SharePoint export plan set — see [[04_Projects/Active/EL/EL Index|EL Index]]. No dependencies; ran in parallel with [[04_Projects/Active/EL/EL Document Approval Workflow Warplan|P0]] (which is functionally done). Unblocks [[04_Projects/Active/EL/EL SharePoint Export Job Warplan|P2]] — the real `IElSharePointContext` this plan built is what P2's stub-retiring work consumes.
+
+**Found while starting this plan:** a stub `ISharePointExportService`/`SharePointExportService` already exists in `Lib/Services/EngagementLetters/` and is wired into `ElPackageWorkspace.razor` and `Program.cs` — it logs and returns success with no real Graph call, explicitly so the surrounding UI/workflow could be built ahead of real SharePoint integration. This plan's `IElSharePointContext` is the piece that stub is waiting to be replaced with; P2 (which owns export orchestration) is the natural place to retire the stub, not this plan.
 
 > **For agentic workers:** Execute task-by-task; checkboxes track progress. Branch `Drew/Sprint4/SharePointClient` off `develop`, one PR into `develop`. Read repo `AGENTS.md` first. The reference implementation being ported lives in the sibling repo `C:\Users\dkolaya\source\repos\CDH_FPA` — read `CDH_FPA/Lib/DAL/SPContext.cs` and `CDH_FPA/Lib/Models/SharePoint/SpListItem.cs` before writing code. That folder is gitignored here (`.gitignore:366`), so nothing from it gets committed to this repo. When implementation starts, copy this into `docs/reference/plans/` as the `.original.md` + compressed `.md` pair.
 
@@ -56,78 +58,88 @@ Values go in `appsettings.Development.local.json` — already loaded at `CDH_EL/
 
 ## Task 1 — Packages and config
 
-- [ ] `Lib/Lib.csproj`: add `Microsoft.Graph` and `Azure.Identity` (latest stable compatible with `net10.0`).
-- [ ] `CDH_EL/appsettings.json`: add a `SharePoint` section with **empty** secret values and `"IsDisabled": "True"`, mirroring FPA's key shape (`Azure:AppRegistration:TenantId/ClientId/ClientSecret`, `TenantName`, `SiteName`, `ListName`, `DriveName`). Do **not** port `WriteBytesToDb` (dead config in FPA).
-- [ ] Do not add the `Hangfire` section here — that belongs to P2.
-- [ ] `Lib/Services/SharePoint/ElSharePointOptions.cs` — `record` with the above, `IsDisabled` as `bool`. Include a `Validate()` returning collected problems (empty tenant/client/secret/site/list/drive) so misconfiguration surfaces as a clear message rather than a Graph 401.
+- [x] `Lib/Lib.csproj`: added `Microsoft.Graph` 6.5.0 and `Azure.Identity` 1.21.0 (latest stable, confirmed net10.0-compatible via clean `dotnet build Lib`).
+- [x] `CDH_EL/appsettings.json`: added `SharePoint` section, empty secret values, `"IsDisabled": "True"`, key shape matches FPA (`Azure:AppRegistration:TenantId/ClientId/ClientSecret`, `TenantName`, `SiteName`, `ListName`, `DriveName`). `WriteBytesToDb` not ported.
+- [x] No `Hangfire` section added — deferred to P2 as planned.
+- [x] `Lib/Services/SharePoint/ElSharePointOptions.cs` — `record` with the above, `IsDisabled` as `bool`, plus a `Validate()` returning collected problem strings. Also added a `Bind(IConfiguration)` factory (not in the original plan) since the flat record and the nested tracked-JSON shape (`Azure:AppRegistration:*`) don't line up for a plain `IConfiguration.Get<T>()` bind — needed somewhere for Task 3's DI registration to consume, so it landed here instead of being invented ad hoc later.
+
+**Note:** Verified `Lib`/`Lib.Tests` build and test clean with the new packages. Could not verify the full solution (`CDH_EL`, `CDH_EL.Tests`) — the internal NuGet feed `\\192.168.17.202\Nuget\packages` (source of `CDH.Bridge.Client`) is currently unreachable (network/VPN down), unrelated to this change. Re-run `dotnet build` once connectivity is back, before Task 3's `Program.cs` registration lands.
 
 ## Task 2 — Graph field mapping
 
-- [ ] `Lib/Models/SharePoint/GraphFieldAttribute.cs` — port FPA's attribute including `LookupTypes { None, User }`.
-- [ ] `Lib/Models/SharePoint/IGraphUserResolver.cs` — `Task<string?> GetUserIdAsync(string? email, ct)` / `Task<string?> GetUserEmailAsync(string? userId, ct)`.
-- [ ] `Lib/Models/SharePoint/GraphFieldMapper.cs` — generic `ToFieldsAsync<T>` / `FromFieldsAsync<T>`, skipping properties without the attribute and null/whitespace values on write (FPA's behavior — a null property must not blank a SharePoint column).
-- [ ] Preserve FPA's id handling: the item id travels as the field key `"Id"` on read, and must be **removed** from the dictionary before a PATCH (see `UpdateRawSpListItem` — sending `Id` as a field fails).
+- [x] `Lib/Models/SharePoint/GraphFieldAttribute.cs` — port FPA's attribute including `LookupTypes { None, User }`.
+- [x] `Lib/Models/SharePoint/IGraphUserResolver.cs` — `Task<string?> GetUserIdAsync(string? email, ct)` / `Task<string?> GetUserEmailAsync(string? userId, ct)`.
+- [x] `Lib/Models/SharePoint/GraphFieldMapper.cs` — generic `ToFieldsAsync<T>` / `FromFieldsAsync<T>`, skipping properties without the attribute and null/whitespace values on write (FPA's behavior — a null property must not blank a SharePoint column). Both take an optional `ILogger?` so a failed user-lookup fallback is logged, not silent.
+- [x] Preserve FPA's id handling: the item id travels as the field key `"Id"` on read (`GraphFieldMapper.IdFieldName`), and must be **removed** from the dictionary before a PATCH via `GraphFieldMapper.RemoveIdField` (see `UpdateRawSpListItem` — sending `Id` as a field fails).
 
 ## Task 3 — SharePoint client
 
-- [ ] `Lib/Services/SharePoint/IElSharePointContext.cs`:
-  - [ ] `bool IsDisabled { get; }`
-  - [ ] `Task<SharePointFolder> EnsureFolderAsync(string folderName, CancellationToken ct)`
-  - [ ] `Task<SharePointFile> UploadFileAsync(string folderPath, string fileName, byte[] bytes, CancellationToken ct)`
-  - [ ] `Task<IReadOnlyDictionary<string, object>> AddOrUpdateListItemAsync(string? spId, IReadOnlyDictionary<string, object> fields, CancellationToken ct)`
-  - [ ] `IGraphUserResolver` implemented by the same class (or exposed off it) so the mapper can translate people columns.
-  - [ ] Small `record` results carrying `Id`, `Name`, `WebUrl`, `FilePath`.
-- [ ] `ElSharePointContext.cs`:
-  - [ ] Lazy async caches for site id, list id, drive id, and the user map. Guard each with a `SemaphoreSlim` — FPA's `??=` is not safe once the calls are genuinely concurrent.
-  - [ ] Port the site-id assertions verbatim (≥2 comma segments; first segment matches the tenant in the site key).
-  - [ ] `EnsureFolderAsync`: look for the child folder by name under the drive root; create it with a `DriveItem { Name, Folder = new Folder() }` POST when absent; return the existing one when present. Idempotent — re-export must not create `Folder (1)`.
-  - [ ] `UploadFileAsync`: PUT content to the item path under the folder. A file open by a user cannot be overwritten — surface that as a distinct exception with the file name, as FPA's comment describes.
-  - [ ] `AddOrUpdateListItemAsync`: POST when `spId` is null; PATCH otherwise; on `"The specified list item was not found"` (case-insensitive) log a warning and POST instead.
-  - [ ] Every method returns early / throws a clear `ElSharePointException` when `IsDisabled` — decide one and document it; recommendation: **throw**, and let the caller check `IsDisabled` first (as FPA's job does), so a disabled tenant can never look like a successful upload.
-  - [ ] `ILogger<ElSharePointContext>` for the resolution steps and the not-found recovery. `Lib` may take `Microsoft.Extensions.Logging.Abstractions`; do not pull Serilog into `Lib`.
-- [ ] Register in `CDH_EL/Program.cs` — scoped, options bound from configuration, following the explicit-factory style already used for `ElDocumentRenderService` at `:85`.
+- [x] `Lib/Services/SharePoint/IElSharePointContext.cs`:
+  - [x] `bool IsDisabled { get; }`
+  - [x] `Task<SharePointFolder> EnsureFolderAsync(string folderName, CancellationToken ct)`
+  - [x] `Task<SharePointFile> UploadFileAsync(string folderPath, string fileName, byte[] bytes, CancellationToken ct)`
+  - [x] `Task<IReadOnlyDictionary<string, object>> AddOrUpdateListItemAsync(string? spId, IReadOnlyDictionary<string, object> fields, CancellationToken ct)`
+  - [x] `IGraphUserResolver` implemented by the same class — `IElSharePointContext : IGraphUserResolver`.
+  - [x] Small `record` results carrying `Id`, `Name`, `WebUrl`, `FilePath`.
+- [x] `ElSharePointContext.cs`:
+  - [x] Lazy async caches for site id, list id, drive id, and the user map. Each guarded by its own `SemaphoreSlim`.
+  - [x] Port the site-id assertions verbatim (≥2 comma segments; first segment matches the tenant in the site key).
+  - [x] `EnsureFolderAsync`: looks for the child folder by name under the drive root (`Children.GetAsync` + name match, not exception-driven); creates it with a `DriveItem { Name, Folder = new Folder() }` POST when absent. Idempotent.
+  - [x] `UploadFileAsync`: PUT content to the item path under the folder. A "lock"-mentioning failure wraps as `ElSharePointException` with `FailureKind.FileLocked` and the file name; any other upload failure wraps as `FailureKind.Unknown`.
+  - [x] `AddOrUpdateListItemAsync`: POST when `spId` is null; PATCH otherwise; on `"The specified list item was not found"` (case-insensitive) logs a warning and POSTs instead.
+  - [x] Every method throws `ElSharePointException` (`FailureKind.Configuration`) when `IsDisabled` — callers must check `IsDisabled` first, as planned.
+  - [x] `ILogger<ElSharePointContext>` for resolution steps and not-found recovery. No Serilog in `Lib`.
+- [x] Registered in `CDH_EL/Program.cs` (next to the `ISharePointExportService` registration) — scoped, options bound from configuration via `ElSharePointOptions.Bind`, following the explicit-factory style already used for `ElDocumentRenderService`.
+
+**Deviation from the plan:** added an `ElSharePointFailureKind` enum (`Configuration`/`NotFound`/`FileLocked`/`Unknown`) on `ElSharePointException` rather than subclassing per-failure exception types — same "callers can distinguish config/not-found/locked" goal from the plan's Design table, one exception type instead of three.
 
 ## Task 4 — Mirror table
 
-- [ ] `Lib/Models/EL/ELPackageSpListItem.cs`, `[Table("ELPackageSpListItem")]`, `BaseRecord`-derived, snake_case columns per `docs/reference/db-design-guide.md`, `[GraphField]`-annotated where the value maps to SharePoint:
-  - [ ] `id`, `package_id` (FK → `ELPackage`), `sp_id`
-  - [ ] `title`, `status`, `client_name`, `letter_count`
-  - [ ] `folder_sp_id`, `folder_web_url`, `folder_file_path`
-  - [ ] `rm_reviewer_email`, `partner_reviewer_email` (both `LookupTypes.User`)
-  - [ ] `client_signer_name`, `client_signer_email`, `intacct_customer_number`
-  - [ ] `docusign_envelope_id`, `docusign_status` (written empty in this plan set; no read-back)
-  - [ ] `date_exported_utc`, `export_error` (nullable) — the UI needs "when" and "why it failed"; FPA has neither and instead stuffs an error flag into approval-note JSON metadata, which is worse
-- [ ] Unique index on `package_id` — one live list item per package (the grain decision). Follow the `[Index(..., IsUnique = true)]` style used on `ELDocument`.
-- [ ] `MaxLength` on every string column; do not default to `nvarchar(max)`. Mirror FPA's 100/255 sizing except SharePoint URLs, which the existing `ELDocumentFile` sizes at `nvarchar(1000)` — match that.
-- [ ] DbSet in `Lib/DAL/ELContext.cs` beside `ELDocumentFile` (`:84`).
-- [ ] Migration `Lib/Migrations/{yyyyMMddHHmmss}_add_table_ELPackageSpListItem.cs` — one logical change, per repo naming rules (`add_table_<Entity>`, preserving `EL` casing).
-- [ ] **No new attachment table.** Per-letter artifacts use `ELDocumentFile` (`enumFileKind = DocumentFileKind.Pdf`), whose `sp_id`/`web_url`/`file_path`/`bytes`/`checksum` columns exist and are currently unwritten. Confirm before adding anything.
+- [x] `Lib/Models/EL/ELPackageSpListItem.cs`, `[Table("ELPackageSpListItem")]`, `BaseRecord`-derived, snake_case columns, `[GraphField]`-annotated where the value maps to SharePoint:
+  - [x] `id`, `package_id` (FK → `ELPackage`), `sp_id`
+  - [x] `title`, `status`, `client_name`, `letter_count`
+  - [x] `folder_sp_id`, `folder_web_url`, `folder_file_path`
+  - [x] `rm_reviewer_email`, `partner_reviewer_email` (both `LookupTypes.User`)
+  - [x] `client_signer_name`, `client_signer_email`, `intacct_customer_number`
+  - [x] `docusign_envelope_id`, `docusign_status` (written empty in this plan set; no read-back)
+  - [x] `date_exported_utc`, `export_error` (nullable)
+- [x] Unique index on `package_id` — `[Index(nameof(packageId), IsUnique = true)]`, matching `ELDocument`'s style.
+- [x] Sizing follows this codebase's actual convention (`[Column(..., TypeName = "nvarchar(N)")]`, not FPA's `[MaxLength]` attribute): `nvarchar(100)` for FPA-mirrored short fields, `nvarchar(1000)` for `sp_id`/`folder_sp_id`/`folder_web_url`/`folder_file_path` (matching `ELDocumentFile`'s URL-ish columns) and for `export_error` (free-text message, no FPA precedent to mirror).
+- [x] DbSet in `Lib/DAL/ELContext.cs` beside `ELDocumentFile`.
+- [x] Migration `Lib/Migrations/20260813191148_add_table_ELPackageSpListItem.cs`.
+- [x] **No new attachment table** — confirmed, used `ELDocumentFile` as planned.
+
+**Deviations from the plan:** `letter_count`, `folder_sp_id`, `folder_web_url`, `folder_file_path` are **not** `[GraphField]`-annotated — folder metadata comes back from `EnsureFolderAsync`'s `SharePointFolder` result (drive API), not a list-item field, so it never flows through `GraphFieldMapper`; `letter_count` is EL-derived with no obvious SharePoint column counterpart yet. `intacct_customer_number`'s `[GraphField]` placeholder is a clean name (`"IntacctCustomerNumber"`), not FPA's actual mangled internal name (`IntacctCust_x0023_`) — the EL list doesn't exist yet, so there's no real internal name to port; this is just a readable placeholder pending provisioning, per the plan's own "relisting is one edit" design goal.
 
 ## Task 5 — Tests
 
-- [ ] New `Lib.Tests/Models/SharePoint/GraphFieldMapperTests.cs`:
-  - [ ] Round-trip an annotated test type; unannotated properties are ignored.
-  - [ ] Null / whitespace values are omitted on write (must not blank a column).
-  - [ ] `LookupTypes.User` writes the resolved lookup id and reads back the email, using a stub resolver.
-  - [ ] Unresolvable email falls back to the raw string rather than throwing (FPA's behavior) — and assert that a log/finding records it, because a silent fallback is how a people column ends up holding plain text.
-  - [ ] `"Id"` is stripped before PATCH and present after read.
-- [ ] New `ElSharePointOptionsTests.cs` — `Validate()` reports each missing value.
-- [ ] No live-Graph tests. `ElSharePointContext` is verified by P2's fake-backed orchestration tests plus the manual smoke below.
+- [x] New `Lib.Tests/Models/SharePoint/GraphFieldMapperTests.cs`:
+  - [x] Round-trip an annotated test type; unannotated properties are ignored.
+  - [x] Null / whitespace values are omitted on write (must not blank a column).
+  - [x] `LookupTypes.User` writes the resolved lookup id and reads back the email, using a stub resolver.
+  - [x] Unresolvable email/id falls back to the raw string rather than throwing, and a `RecordingLogger` test double asserts a warning was logged.
+  - [x] `"Id"` is stripped before PATCH (`RemoveIdField`) and present after read (`FromFieldsAsync`).
+- [x] New `Lib.Tests/Services/SharePoint/ElSharePointOptionsTests.cs` — `Validate()` reports each missing value (and none when complete); added `Bind()` coverage (nested `Azure:AppRegistration` secret + flat keys, `IsDisabled` default-true) beyond the plan's minimum.
+- [x] No live-Graph tests, as planned.
 
 ## Verification
 
-- [ ] `dotnet build` — 0 errors.
-- [ ] `dotnet test` — new tests pass; pre-existing `EngagementLetterTemplateServiceTests` failures (title-uniqueness, effective-date, default-order) unchanged; confirm via `git stash` before attributing.
-- [ ] `dotnet ef migrations add add_table_ELPackageSpListItem --project Lib --startup-project CDH_EL`, then `dotnet ef database update` against the **local Docker container `cdhel-sql` (sqlcmd → localhost)**, not the shared `192.168.17.202\CDH_FPA` box.
-- [ ] Confirm the created table's columns, types, lengths, unique index on `package_id`, and FK to `ELPackage`.
-- [ ] Confirm `Down()` drops cleanly and re-`update` recreates.
-- [ ] App still starts with `SharePoint:IsDisabled = "True"` and empty secrets — no startup exception from options binding.
-- [ ] Manual Graph smoke (once the list exists and secrets are in `appsettings.Development.local.json`): a scratch console call or temporary endpoint that resolves site/list/drive ids, calls `EnsureFolderAsync` twice with the same name (second is a no-op, not a duplicate), uploads a small file twice (second overwrites), and creates then PATCHes one list item. Remove any scratch code before the PR.
-- [ ] Confirm employee emails resolve against the site's User Information List — the FPA job feeds it `relationshipManagerEmployee.username`, while Bridge hands EL `EmployeeDto.Email` (Intacct primary). If those diverge for real employees, the lookup returns null and writes raw text. Spot-check several.
+- [x] `dotnet build` — `Lib`, `Lib.Tests`, `CDH_EL` all 0 errors. Full `CDH_EL` solution build no longer blocked — internal NuGet feed (`\\192.168.17.202\Nuget\packages`) was still unreachable this session too, but `dotnet restore --ignore-failed-sources` (local package cache already warm) got past it.
+- [x] `dotnet test` — all Task 5 tests pass. Same 3 pre-existing `EngagementLetterTemplateServiceTests` failures (title-uniqueness, effective-date, default-order) unchanged. One additional failure surfaced (`ElDocumentPdfPreviewServiceTests.GenerateAsync_RendersContinuationFurnitureForMultiPageBody`) — confirmed order-dependent/flaky, not a regression: passes cleanly in isolation, shares no code with this plan's changes.
+- [x] `dotnet ef migrations add add_table_ELPackageSpListItem` + `dotnet ef database update`, against **local Docker `cdhel-sql`**.
+- [x] Confirmed columns/types/lengths, unique index on `package_id`, FK to `ELPackage` via `sqlcmd`.
+- [x] Confirmed `Down()` drops cleanly and re-`update` recreates (round-tripped as a side effect of a rollback-target mistake — landed on `Down()` two migrations back, which correctly hit the intentionally-irreversible `update_UserRecord_trim_disallowed_permission_actions` migration and stopped there; the intermediate `Down()`/`Up()` for this table both ran and were verified via `__EFMigrationsHistory` + `sys.tables`).
+- [x] App starts with `SharePoint:IsDisabled = "True"` and empty secrets — no startup exception (`ElSharePointOptions.Bind` is invoked lazily per-scope, not eagerly at startup, and nothing resolves `IElSharePointContext` yet).
+- [ ] Manual Graph smoke — still blocked on provisioning (list/library/secrets don't exist yet), unchanged from plan authoring.
+- [ ] Employee-email resolution spot-check — still blocked on provisioning, unchanged from plan authoring.
+
+**Local dev DB config note:** `CDH_EL/appsettings.Development.json`'s `SQL`/`SQL-Log` sections had reverted to the shared `192.168.17.202\CDH_FPA` box (the local `localhost,1433` / `cdhel-sql` pointer from 2026-07-21 was gone — file was back to its tracked, remote-pointing state). Re-pointed both sections at `localhost,1433` / `CDH_EL_DK_S3` / `sa` / `CDH_El_Local1!` before running migrations — intentionally an uncommitted local-only edit, not meant to ship, per the same convention as before.
 
 ## Status Log
 
 - 2026-08-12 — Plan authored as P1 of the SharePoint export set. Ported design read out of `CDH_FPA/Lib/DAL/SPContext.cs` + `Lib/Models/SharePoint/SpListItem.cs`. Confirmed `ELDocumentFile` already carries `sp_id`/`web_url`/`file_path`/`bytes`/`checksum` with zero writers anywhere in CDH_EL, so no attachment table is needed. Confirmed FPA's `WriteBytesToDb` config key is never read in FPA code — not ported. Blocked item: the EL list/library must exist before `[GraphField]` internal column names can be filled in.
+- 2026-08-13 — Task 1 done: `Microsoft.Graph` 6.5.0 + `Azure.Identity` 1.21.0 added to `Lib.csproj` (confirmed via `dotnet package search` as current latest stable); `SharePoint` config section added to `CDH_EL/appsettings.json` with empty secrets and `IsDisabled: "True"`; `ElSharePointOptions` record + `Validate()` + a `Bind(IConfiguration)` factory added at `Lib/Services/SharePoint/ElSharePointOptions.cs`. Confirmed the tracked FPA config shape by reading `CDH_FPA/Web/appsettings.json` directly rather than guessing (`Azure:AppRegistration:TenantId/ClientId/ClientSecret` nesting). `Lib`/`Lib.Tests` build and test clean. Could not verify the full `CDH_EL` solution build — internal NuGet feed `\\192.168.17.202\Nuget\packages` unreachable this session (VPN/network down); re-check before Task 3 lands `Program.cs` registration. Also found a pre-existing stub `ISharePointExportService` already wired into the workspace UI, waiting on this plan's client — noted above, real replacement is P2's job.
+- 2026-08-13 (later same day) — Tasks 2-5 done, all in one pass. Ported `CDH_FPA/Web/Wrappers/SpContext.cs` + `Lib/Models/SharePoint/SpListItem.cs` (read directly from the sibling repo) into `GraphFieldAttribute`/`IGraphUserResolver`/`GraphFieldMapper` (Task 2), `IElSharePointContext`/`ElSharePointContext` (Task 3, registered in `Program.cs`), `ELPackageSpListItem` + migration `20260813191148_add_table_ELPackageSpListItem` (Task 4), and `GraphFieldMapperTests`/`ElSharePointOptionsTests` (Task 5). Full deviation list is inline above each task section. Internal NuGet feed was down again this session too, but `dotnet restore --ignore-failed-sources` got past it using the already-warm local package cache — full `CDH_EL` solution build now verified clean, closing out Task 1's open item. Migration applied to local `cdhel-sql` after discovering `CDH_EL/appsettings.Development.json`'s `SQL` section had reverted to the shared remote box (re-pointed it at `localhost,1433` / `CDH_EL_DK_S3`, per the same uncommitted-local-only convention noted 2026-07-21). All plan checkboxes done except the two explicitly provisioning-blocked verification items (manual Graph smoke, employee-email spot-check) — unchanged, still waiting on the EL SharePoint list/library to exist.
 
 ## Links
 
