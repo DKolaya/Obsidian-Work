@@ -28,7 +28,7 @@ tags:
 ## Active
 
 - [ ] Look into the Intacct REST API.
-- [ ] Review logging needs on EL APP.
+- [x] Review logging needs on EL APP. ✅ 2026-08-17
 - [ ] Set up Hangfire Jobs for EL. — covered by [[04_Projects/Active/EL/EL SharePoint Export Job Warplan|SharePoint Export Job Warplan]] (P2), which adds Hangfire + SQL storage + a gated dashboard.
 - [ ] EL SharePoint export, four plans (P0-P3), all `Drew/Sprint4/*` off `develop` — index and ordering in [[04_Projects/Active/EL/EL Index|EL Index]]:
     - [ ] P0 [[04_Projects/Active/EL/EL Document Approval Workflow Warplan|Document Approval Workflow]] — prerequisite; nothing transitions `ELDocument.enumDocumentState` today.
@@ -56,10 +56,11 @@ EL Tasks board (owner: Drew):
 - [x] Create Solution and Repository
 - [x] Create engagement letter overview/search screen
 - [x] Setting up AI tools for developement
-- [ ] Implement audit trail — Waiting for review
-- [ ] Implement application permissions including approval workflows — In Progress
-- [ ] Implement notes (with Nathan Sawyer) — In Progress
-- [ ] Export letter to SharePoint — In Progress (matches active [[04_Projects/Active/EL/EL SharePoint Client Warplan|SharePoint Client]]/[[04_Projects/Active/EL/EL Document Approval Workflow Warplan|Document Approval Workflow]] work)
+- [ ] Implement audit trail — Pending Deploy (was Waiting for review)
+- [ ] Implement application permissions including approval workflows — Pending Deploy (was In Progress)
+- [ ] Implement notes (with Nathan Sawyer) — Pending Deploy (was In Progress)
+- [ ] Export letter to SharePoint — In Progress, unchanged (matches active [[04_Projects/Active/EL/EL SharePoint Client Warplan|SharePoint Client]]/[[04_Projects/Active/EL/EL Document Approval Workflow Warplan|Document Approval Workflow]] work)
+- [ ] Initial SharePoint planning for meeting prep with Esther (High) — assigned to Drew by Shannon Thai 2026-08-17, no status yet.
 
 AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/AI Initiative]]:
 - [ ] W1: Platform research - Claude (Anthropic) — In Progress
@@ -69,7 +70,7 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [ ] W5: Platform research - Codex vs Claude Code — In Progress (moved off "overdue" 2026-08-10)
 - [ ] W6: Draft v1 platform comparison brief (overdue, was due 2026-08-07, still Not Started)
 - [ ] W7: Research accounting AI add-ons - Sage Intacct, QuickBooks (overdue, was due 2026-08-14, still Not Started)
-- [ ] W8: Research accounting AI add-ons - CCH Axcess, CoCounsel, Karbon (due today, 2026-08-17)
+- [ ] W8: Research accounting AI add-ons - CCH Axcess, CoCounsel, Karbon (overdue, was due 2026-08-17, still Not Started)
 - [ ] W9: Fold accounting-tool findings into brief
 - [ ] W10: Support playbook - gather usage examples
 - [ ] W11: Support playbook - draft sections
@@ -100,12 +101,13 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 ## From Teams
 
-- Scan incomplete this run (Graph rate limit, 0/47 chats checked before 429 — sixth run in a row hitting the same limit).
+- [ ] Confirm to Shannon Thai whether server maintenance happens this week or next (asked 2026-08-17, Drew's reply in-thread didn't pin a week).
+- Scan mostly completed this run (46/47 chats before Graph rate limit — first non-zero scan in six runs).
 
 ## GitHub
 
 - No open PRs waiting on Drew's review. No actionable notifications.
-- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check still failing (checked 2026-08-17).
+- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check still failing (checked 2026-08-18).
 - [TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350) — open, no checks configured, unchanged.
 
 ## Done This Week

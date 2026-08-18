@@ -30,6 +30,10 @@ Four plans, one branch and PR each, all `Drew/Sprint4/*` off `develop`. Goal: a 
 
 Order: P0 and P1 can run in parallel → P2 after P1 → P3 last.
 
+#### Companion brief (not a plan)
+
+- [[04_Projects/Active/EL/EL SharePoint Structure and DocuSign Brief|EL SharePoint Structure and DocuSign Brief]] — **discussion brief, authored 2026-08-17.** The SharePoint layout (one list item + one folder per package, per-file routing columns) and the outbound Power Automate flow that turns a package into one multi-document DocuSign envelope. Covers the handoff P0–P3 stop short of. Status return path deliberately out of scope. Carries three open decisions: signature-tab placement, per-letter signer source, and the merge-field hard-failure gate.
+
 ## Links
 
 - [[04_Projects/Project Index|Project Index]]
