@@ -101,8 +101,8 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 ## From Teams
 
-- [ ] Confirm to Shannon Thai whether server maintenance happens this week or next (asked 2026-08-17, Drew's reply in-thread didn't pin a week).
-- Scan mostly completed this run (46/47 chats before Graph rate limit — first non-zero scan in six runs).
+- [ ] Confirm to Shannon Thai whether server maintenance happens this week or next (asked 2026-08-17, Drew's reply in-thread didn't pin a week — still unconfirmed as of 08-19).
+- Scan rate-limited immediately this run (0/47 chats) — back to the persistent failure pattern after 08-18's one good 46/47 scan.
 
 ## GitHub
 

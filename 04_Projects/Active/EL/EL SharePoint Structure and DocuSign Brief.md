@@ -38,25 +38,47 @@ FPA maps one list item to one file. EL cannot — a package holds several letter
 
 ```mermaid
 flowchart LR
-  subgraph L["EL Packages · list"]
-    LI["one item per package<br/>Title · ClientName · Status<br/>reviewers · signer · Intacct number<br/>DocusignEnvelopeId<br/>ReadyForSignature"]
+  subgraph EL["EL app · CDH_EL"]
+    JOB["P2 export job<br/>renders PDFs<br/>writes all metadata"]
   end
-  subgraph D["EL Letters · document library"]
-    F["folder: one per package"]
-    F1["Combo letter.pdf<br/>SignerEmail · SigningOrder 1"]
-    F2["Tax separate.pdf<br/>SignerEmail · SigningOrder 2"]
-    F3["Audit separate.pdf<br/>SignerEmail · SigningOrder 3"]
-    F --> F1
-    F --> F2
-    F --> F3
+
+  subgraph SP["SharePoint site"]
+    subgraph L["EL Packages · list"]
+      LI["one item per package<br/>client · signer · reviewers<br/>Intacct number<br/>DocusignEnvelopeId<br/>ReadyForSignature"]
+    end
+    subgraph D["EL Letters · document library"]
+      F["folder: one per package"]
+      F1["Combo letter.pdf<br/>PackageId · SignerEmail · SigningOrder 1"]
+      F2["Tax separate.pdf<br/>PackageId · SignerEmail · SigningOrder 2"]
+      F3["Audit separate.pdf<br/>PackageId · SignerEmail · SigningOrder 3"]
+      F --> F1
+      F --> F2
+      F --> F3
+    end
   end
-  LI -- "PackageId" --> F
-  PA["Power Automate<br/>reads both, builds one envelope"]
-  LI -- "trigger on item" --> PA
-  F -- "get files (properties only)" --> PA
+
+  JOB -- "writes" --> LI
+  JOB -- "writes" --> F
+  LI -- "1 · trigger payload" --> PA
+  F -- "2 · get files, filter by PackageId" --> PA
+  PA["Power Automate<br/>reads SharePoint only"]
+  PA -- "one envelope, N documents" --> DS["DocuSign"]
 ```
 
-`PackageId` on each file is the join key Power Automate filters on, so the flow never parses folder paths and survives folder renames.
+**Both of Power Automate's inputs are SharePoint.** Nothing is read from the EL app or its database at flow time — the export job pushes everything into SharePoint first, and the flow reads it from there. There is no callback path from Power Automate into EL.
+
+- The EL app writes the list item via `AddOrUpdateListItemAsync`, and the folder plus files via `EnsureFolderAsync` / `UploadFileAsync` / the new `UpdateFileFieldsAsync`.
+- Package-level fields arrive **free in the trigger payload** — no separate "get item" action. Note that Person columns come back as nested objects (`triggerBody()?['RMReviewer']?['Email']`), not flat strings.
+- Per-file routing needs one extra action, *Get files (properties only)*, filtered on `PackageId` taken from that payload. It returns metadata only; file bytes need a separate *Get file content* per file inside the loop.
+- `PackageId` lives **on the files**, not on the list item as a pointer. It is the join key the flow filters by, so the flow never parses folder paths and survives folder renames.
+
+> [!warning] `PackageId` must be an indexed library column
+> Filtering a non-indexed column in a library past 5,000 items throws the list view threshold error. It works fine in testing and breaks once the library fills up. Cheap at provisioning, painful to retrofit.
+
+> [!info] The SharePoint item trigger polls
+> It is not a webhook. Expect a poll-interval delay between the EL action and the DocuSign email landing — worth setting expectations before anyone demos this.
+
+Consequence worth stating plainly: **if a field is blank in SharePoint, the flow cannot recover it.** There is no fallback path to ask EL. That is why P2 validates collect-all-errors style *before* touching SharePoint — the flow's correctness depends entirely on the export having been complete.
 
 ## One envelope per package, routed per document
 
