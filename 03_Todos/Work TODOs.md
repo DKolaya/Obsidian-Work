@@ -13,7 +13,8 @@ tags:
 
 ## Next
 
-- [ ] 
+- [x] Q11 in UAT needs top right changed to top left ✅ 2026-08-19
+- [ ] Q16 in UAT needs window to the right changed to window to the right of the letter menu
 
 ## Waiting
 
@@ -94,14 +95,14 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 - [x] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT. ✅ 2026-07-13
 - [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
-- [ ] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access.
+- [x] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access. ✅ 2026-08-19
 - [x] Reply re: Dept 100 pass-through invoice handling (Tim Wright, twright@trancyamerica.com, 2026-07-21) — question on Integration Testing and Transactions thread, unread. ✅ 2026-07-23
-- [ ] Sage Intacct company "cc-institute-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-08-04) — reactivate or confirm deactivation.
-- [ ] Submit July expense reports by EOD today, approved by Monday morning (Sharon Wells, swells@cdhcpa.com, 2026-08-06) — broadcast to staff, not addressed to Drew individually, but deadline applies.
+- [x] Sage Intacct company "cc-institute-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-08-04) — reactivate or confirm deactivation. ✅ 2026-08-19
+- [x] Submit July expense reports by EOD today, approved by Monday morning (Sharon Wells, swells@cdhcpa.com, 2026-08-06) — broadcast to staff, not addressed to Drew individually, but deadline applies. ✅ 2026-08-19
 
 ## From Teams
 
-- [ ] Confirm to Shannon Thai whether server maintenance happens this week or next (asked 2026-08-17, Drew's reply in-thread didn't pin a week — still unconfirmed as of 08-19).
+- [x] Confirm to Shannon Thai whether server maintenance happens this week or next (asked 2026-08-17, Drew's reply in-thread didn't pin a week — still unconfirmed as of 08-19). ✅ 2026-08-19
 - Scan rate-limited immediately this run (0/47 chats) — back to the persistent failure pattern after 08-18's one good 46/47 scan.
 
 ## GitHub
