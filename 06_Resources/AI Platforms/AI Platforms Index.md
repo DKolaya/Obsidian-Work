@@ -25,8 +25,7 @@ Harness and tooling evaluations live in [[09_Reference/Codex/Codex Index|Codex /
 
 ## Company research queue
 
-- Google DeepMind / Gemini
-- Additional vendors as Initiative 1 expands
+- Additional vendors as Initiative 1 expands (nothing queued — per-vendor profiles were retired with the 2026-08-20 restructure)
 
 ## Comparisons
 
@@ -36,9 +35,7 @@ Harness and tooling evaluations live in [[09_Reference/Codex/Codex Index|Codex /
 
 All of Q1 (W1–W13) was restructured on 2026-08-20 from one-vendor-per-week into a standing weekly research brief — see the scope table in [[04_Projects/Active/AI Initiative|AI Initiative]].
 
-Still owed:
-
-- Google Gemini — attempted W4, deep-research run failed at synthesis; the one vendor profile outstanding
+Nothing outstanding. Google Gemini was attempted in W4 and closed without a profile — the deep-research run failed at synthesis, that was root-caused and documented, and W4 is Done. Not being carried forward; the standing-track shape replaced per-vendor profiles.
 
 Removed from the queue on 2026-08-20: the accounting AI add-on research (Sage Intacct + QuickBooks, previously W7; CCH Axcess + CoCounsel + Karbon, previously W8). Dropped under the Track 4 pivot — judging whether an AI feature improves accounting work isn't ours to make, and QuickBooks, CCH Axcess, CoCounsel and Karbon aren't firm tools. **Sage Intacct AI moved to Patrick** the same day, so the VAR collision-risk question is tracked on his side rather than here.
 

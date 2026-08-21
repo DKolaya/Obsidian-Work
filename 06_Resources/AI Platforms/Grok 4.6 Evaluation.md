@@ -39,8 +39,6 @@ Launch promotion included 2× included usage in Grok Build and Cursor for the fi
 
 61 puts it level with GPT-5.6 Sol and at the frontier tier. The agentic-coding jumps over 4.5 are the substantive change — this is a release aimed at exactly the long-horizon agent work our harnesses do.
 
-> **Unreconciled:** the source placing Grok 4.6 at 61 describes it as one point behind Fable 5, implying 62. [[06_Resources/AI Platforms/Kimi K3 Evaluation|W6's research]] recorded Fable 5 at 60. Settle before either figure goes in the comparison brief.
-
 ## Pricing
 
 | | Input /M | Output /M |

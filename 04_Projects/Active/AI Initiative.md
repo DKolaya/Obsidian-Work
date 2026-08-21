@@ -67,7 +67,7 @@ No week is expected to hit all five. Track 4 replaced an earlier "what AI can do
 - [x] W1: AI Research & Evaluation — Anthropic ✅ 2026-08-20 — profile + the evidence-labeling schema every later writeup reuses
 - [x] W2: AI Research & Evaluation — OpenAI ✅ 2026-08-20
 - [x] W3: AI Research & Evaluation — M365 Copilot ✅ 2026-08-20 — usage-to-value gap finding
-- [x] W4: AI Research & Evaluation — Google Gemini ✅ 2026-08-20 — no profile produced; root-caused and documented the deep-research synthesis failure instead. Gemini still owed
+- [x] W4: AI Research & Evaluation — Google Gemini ✅ 2026-08-20 — no profile produced; root-caused and documented the deep-research synthesis failure instead. Closed as-is, not carried forward
 - [x] W5: AI Research & Evaluation — Codex vs Claude Code ✅ 2026-08-20 — [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|workflow audit report]] over 150 real sessions, reusable audit prompt, [[AGENTS]] multi-agent standard
 Open weeks carry the general task name only. A topic tag gets added when that week's work log is written and the item closes — the intended focus for the remaining weeks is noted below, but nothing is committed until the week happens.
 
@@ -90,7 +90,9 @@ Company-by-company research lives in [[06_Resources/AI Platforms/AI Platforms In
 - [[06_Resources/AI Platforms/OpenAI Company Profile|OpenAI Company Profile]] — products, uses, quality, adoption, business trends, sentiment, risks, and pilot guidance (verified 2026-07-16)
 - [[06_Resources/AI Platforms/Microsoft Copilot Company Profile|Microsoft Copilot Company Profile]] — products, uses, quality, adoption, business trends, sentiment, risks, and pilot guidance (verified 2026-07-17)
 
-Codex vs Claude Code shipped in W5 — see the [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|workflow audit report]]. Google Gemini is the one platform write-up still owed; it gets its own note in [[06_Resources/AI Platforms/AI Platforms Index|AI Platforms]] whenever it lands, then rolls into the v1/v2 brief.
+Codex vs Claude Code shipped in W5 — see the [[09_Reference/Codex/AI Agent Workflow Audit Report 2026-07|workflow audit report]]. Nothing further is owed here: per-vendor profiles were retired in the 2026-08-20 restructure, and Gemini closed without one. Research now lands as per-topic evaluation notes instead — see [[06_Resources/AI Platforms/Kimi K3 Evaluation|Kimi K3]], [[06_Resources/AI Platforms/Grok 4.6 Evaluation|Grok 4.6]], [[09_Reference/Codex/Cursor Evaluation|Cursor]].
+
+The v1/v2 comparison brief is **deprioritized** as of 2026-08-20 — it was an artifact of the retired per-vendor shape. W12 and W13 keep their slots; what goes into the Q1 checkpoint gets decided closer to the date.
 
 ## Status Log
 

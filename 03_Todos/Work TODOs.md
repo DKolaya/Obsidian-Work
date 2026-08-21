@@ -67,7 +67,7 @@ AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/A
 - [x] W1: AI Research & Evaluation - Anthropic ✅ 2026-08-20
 - [x] W2: AI Research & Evaluation - OpenAI ✅ 2026-08-20
 - [x] W3: AI Research & Evaluation - M365 Copilot ✅ 2026-08-20
-- [x] W4: AI Research & Evaluation - Google Gemini ✅ 2026-08-20 — honest partial; no profile produced, Gemini still owed
+- [x] W4: AI Research & Evaluation - Google Gemini ✅ 2026-08-20 — no profile produced; closed as-is, not carried forward
 - [x] W5: AI Research & Evaluation - Codex vs Claude Code ✅ 2026-08-20
 - [x] W6: AI Research & Evaluation - Kimi K3 ✅ 2026-08-20
 - [x] W7: AI Research & Evaluation - Cursor & Grok 4.6 ✅ 2026-08-20

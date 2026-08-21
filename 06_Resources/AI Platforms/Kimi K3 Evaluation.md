@@ -40,8 +40,6 @@ Open-**weight**, not open-source. We can download, run and fine-tune it; we cann
 | GPQA Diamond | 90.2–93.1% | varies by provider |
 | TAU-Bench | 70.7–78.0% | partial data |
 
-> **Unreconciled:** this note records Fable 5 at 60 on the AA index. W7's Grok 4.6 research implied 62. Settle before either figure goes in the comparison brief.
-
 ## Pricing
 
 | | Input /M | Output /M | Cached in /M |
