@@ -57,26 +57,26 @@ EL Tasks board (owner: Drew):
 - [x] Create Solution and Repository
 - [x] Create engagement letter overview/search screen
 - [x] Setting up AI tools for developement
-- [ ] Implement audit trail — Pending Deploy (was Waiting for review)
-- [ ] Implement application permissions including approval workflows — Pending Deploy (was In Progress)
-- [ ] Implement notes (with Nathan Sawyer) — Pending Deploy (was In Progress)
+- [x] Implement audit trail ✅ 2026-08-21 — Done (was Pending Deploy)
+- [ ] Implement application permissions including approval workflows — Pending Deploy, unchanged
+- [x] Implement notes (with Nathan Sawyer) ✅ 2026-08-21 — Done (was Pending Deploy)
 - [ ] Export letter to SharePoint — In Progress, unchanged (matches active [[04_Projects/Active/EL/EL SharePoint Client Warplan|SharePoint Client]]/[[04_Projects/Active/EL/EL Document Approval Workflow Warplan|Document Approval Workflow]] work)
 - [ ] Initial SharePoint planning for meeting prep with Esther (High) — assigned to Drew by Shannon Thai 2026-08-17, no status yet.
 
 AI Weekly Tasks board (owner: Drew) — full breakdown in [[04_Projects/Active/AI Initiative]]:
-- [ ] W1: Platform research - Claude (Anthropic) — In Progress
-- [ ] W2: Platform research - ChatGPT Enterprise/OpenAI — In Progress
-- [x] W3: Platform research - Microsoft 365 Copilot ✅ 2026-07-17
-- [ ] W4: Platform research - Google Gemini — In Progress (moved off "overdue" 2026-08-10)
-- [ ] W5: Platform research - Codex vs Claude Code — In Progress (moved off "overdue" 2026-08-10)
-- [ ] W6: Draft v1 platform comparison brief (overdue, was due 2026-08-07, still Not Started)
-- [ ] W7: Research accounting AI add-ons - Sage Intacct, QuickBooks (overdue, was due 2026-08-14, still Not Started)
-- [ ] W8: Research accounting AI add-ons - CCH Axcess, CoCounsel, Karbon (overdue, was due 2026-08-17, still Not Started)
-- [ ] W9: Fold accounting-tool findings into brief
-- [ ] W10: Support playbook - gather usage examples
-- [ ] W11: Support playbook - draft sections
-- [ ] W12: Finalize comparison brief v2
-- [ ] W13: Present brief at Q1 checkpoint
+- [x] W1: AI Research & Evaluation - Anthropic ✅ 2026-08-20
+- [x] W2: AI Research & Evaluation - OpenAI ✅ 2026-08-20
+- [x] W3: AI Research & Evaluation - M365 Copilot ✅ 2026-08-20
+- [x] W4: AI Research & Evaluation - Google Gemini ✅ 2026-08-20 — honest partial; no profile produced, Gemini still owed
+- [x] W5: AI Research & Evaluation - Codex vs Claude Code ✅ 2026-08-20
+- [x] W6: AI Research & Evaluation - Kimi K3 ✅ 2026-08-20
+- [x] W7: AI Research & Evaluation - Cursor & Grok 4.6 ✅ 2026-08-20
+- [ ] W8: AI Research & Evaluation (current week, due 2026-08-21)
+- [ ] W9: AI Research & Evaluation (due 2026-08-28)
+- [ ] W10: AI Research & Evaluation (due 2026-09-04)
+- [ ] W11: AI Research & Evaluation (due 2026-09-11)
+- [ ] W12: AI Research & Evaluation (due 2026-09-18)
+- [ ] W13: AI Research & Evaluation (due 2026-09-25, Q1 partner checkpoint — fixed date)
 
 Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Active/ORDA Positive Pay]]:
 - [x] Fork Intacct_Toolkit_Core repo
@@ -93,6 +93,7 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 ## From Email
 
+- [ ] Complete EL Sprint 3 UAT and questionnaire (Shannon Thai, sthai@cdhts.com, 2026-08-20) — new UAT round link + MS Forms questionnaire for CDH EL Application Sprint 3.
 - [x] Respond to EL UAT round 1 questionnaire (Shannon Thai, sthai@cdhts.com) — links + questionnaire for Engagement Letter app UAT. ✅ 2026-07-13
 - [x] Sage Intacct company "LeadingAgeNY-imp" (Implementation) blocked, deactivates in 30 days (noreply@intacct.com, 2026-07-13) — reactivate or confirm deactivation. ✅ 2026-07-13
 - [x] Review/edit "CDH EL User Acceptance Testing - Sprint 2" (Shannon Thai, sthai@cdhts.com, shared 2026-07-20) — SharePoint doc shared for edit access. ✅ 2026-08-19
@@ -104,11 +105,12 @@ Positive Pay Export board (owner: Drew) — full breakdown in [[04_Projects/Acti
 
 - [x] Confirm to Shannon Thai whether server maintenance happens this week or next (asked 2026-08-17, Drew's reply in-thread didn't pin a week — still unconfirmed as of 08-19). ✅ 2026-08-19
 - Scan rate-limited immediately this run (0/47 chats) — back to the persistent failure pattern after 08-18's one good 46/47 scan.
+- Rate-limited again 2026-08-21 (429 before scanning any chats) — third failure in four runs; worth checking connector throttling outside this routine.
 
 ## GitHub
 
 - No open PRs waiting on Drew's review. No actionable notifications.
-- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check still failing (checked 2026-08-18).
+- Flagged: [DKolaya/CharacterCafe#104](https://github.com/DKolaya/CharacterCafe/pull/104) — Workers Build check still failing (checked 2026-08-21).
 - [TRANCY_CargoWise_Integration#2](https://github.com/CDHTS/TRANCY_CargoWise_Integration/pull/2), [PEF_MPAS.Web#350](https://github.com/CDHTS/PEF_MPAS.Web/pull/350) — open, no checks configured, unchanged.
 
 ## Done This Week

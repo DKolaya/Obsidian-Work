@@ -16,6 +16,13 @@ Master list for AI-company profiles, platform research, and comparisons feeding 
 - [[06_Resources/AI Platforms/OpenAI Company Profile|OpenAI Company Profile]] — business, products, use cases, software quality, sentiment, economics, risks, and CDH pilot guidance; verified 2026-07-16
 - [[06_Resources/AI Platforms/Microsoft Copilot Company Profile|Microsoft Copilot Company Profile]] — business, products, use cases, software quality, sentiment, economics, risks, and CDH pilot guidance; verified 2026-07-17
 
+## Model evaluations
+
+- [[06_Resources/AI Platforms/Kimi K3 Evaluation|Kimi K3 Evaluation]] — W6 2026-08; Fable 5-tier competitor at ~30% of the price, open weights don't make local viable (~$42.5k/mo floor)
+- [[06_Resources/AI Platforms/Grok 4.6 Evaluation|Grok 4.6 Evaluation]] — W7 2026-08; cheapest model at the frontier at $2/$6, with a billing cliff past 200K tokens
+
+Harness and tooling evaluations live in [[09_Reference/Codex/Codex Index|Codex / Claude Code Index]] — see [[09_Reference/Codex/Cursor Evaluation|Cursor Evaluation]].
+
 ## Company research queue
 
 - Google DeepMind / Gemini
@@ -27,11 +34,15 @@ Master list for AI-company profiles, platform research, and comparisons feeding 
 
 ## Platform and product research queue
 
-- Microsoft 365 Copilot — W3
-- Google Gemini — W4
-- Codex vs Claude Code — W5
-- Accounting AI add-ons: Sage Intacct, QuickBooks — W7
-- Accounting AI add-ons: CCH Axcess, CoCounsel, Karbon — W8
+All of Q1 (W1–W13) was restructured on 2026-08-20 from one-vendor-per-week into a standing weekly research brief — see the scope table in [[04_Projects/Active/AI Initiative|AI Initiative]].
+
+Still owed:
+
+- Google Gemini — attempted W4, deep-research run failed at synthesis; the one vendor profile outstanding
+
+Removed from the queue on 2026-08-20: the accounting AI add-on research (Sage Intacct + QuickBooks, previously W7; CCH Axcess + CoCounsel + Karbon, previously W8). Dropped under the Track 4 pivot — judging whether an AI feature improves accounting work isn't ours to make, and QuickBooks, CCH Axcess, CoCounsel and Karbon aren't firm tools. **Sage Intacct AI moved to Patrick** the same day, so the VAR collision-risk question is tracked on his side rather than here.
+
+Standing tracks now feeding this folder: model landscape, harnesses & dev tools, agent proficiency, firm tool AI evaluation, build-with-AI.
 
 ## Links
 
